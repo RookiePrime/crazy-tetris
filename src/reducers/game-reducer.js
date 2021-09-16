@@ -9,7 +9,14 @@ import {
     GAME_OVER
 } from '../actions'
 
-import { defaultState, nextRotation, canMoveTo } from '../utils'
+import {
+    defaultState,
+    nextRotation,
+    canMoveTo,
+    addBlockToGrid,
+    checkRows,
+    randomShape
+} from '../utils'
 
 //define a function to handle the actions
 const gameReducer = (state = defaultState(), action) => {
@@ -38,8 +45,32 @@ const gameReducer = (state = defaultState(), action) => {
             return state
   
         case MOVE_DOWN:
-  
-            return state
+            //get position of potential Y
+            const potentialY = y + 1;
+            if(canMoveTo(shape, grid, x, potentialY, rotation)) {
+                return {...state, y: potentialY};
+            }
+
+            // If block is placed
+            const newGrid = addBlockToGrid(shape, grid, x, y, rotation)
+            
+            // reset some things to start a new shape/block
+            const newState = defaultState()
+            newState.grid = newGrid
+            newState.shape = nextShape
+            newState.nextShape = randomShape()
+            newState.score = score
+            newState.isRunning = isRunning
+
+            if (!canMoveTo(nextShape, newGrid, 0, 4, 0)) {
+                // Game Over
+                newState.shape = 0
+                return { ...state, gameOver: true }
+            }
+            // Update the score based on if rows were completed or not
+            newState.score = score + checkRows(newGrid)
+
+            return newState
   
         case RESUME:
   
