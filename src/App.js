@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
-import Controls from './components/Controls';
 
+import Controls from './components/Controls';
 import GridBoard from './components/GridBoard';
 import NextBlock from './components/NextBlock';
+import PausePopup from './components/PausePopup';
 import ScoreBoard from './components/ScoreBoard';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <NextBlock />
       <ScoreBoard />
       <Controls />
+      <PausePopup />
     </div>
   );
 }

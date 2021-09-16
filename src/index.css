@@ -122,6 +122,7 @@ and 'b'. The '.' represents an empty cell on the grid. */
 /* Score Board */
 .score-board {
   grid-area: r;
+  margin-top: 100px;
 }
 
 .score-board-button {
@@ -158,3 +159,18 @@ and 'b'. The '.' represents an empty cell on the grid. */
   border-bottom-color: var(--button-color-b);
 }
 
+/* Message Popup Styles */
+.pause-popup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(var(--tile-size) * 10);
+  height: calc(var(--tile-size) * 10);
+  background-color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+.pause-popup.hidden {
+  display: none;
+}

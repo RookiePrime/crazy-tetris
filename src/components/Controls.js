@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUndo,faChevronDown, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Controls(props) {
     return (
@@ -6,23 +8,23 @@ export default function Controls(props) {
             {/* Left */}
             <button className="control-button" onClick={(e) => {
 
-            }}> Left </button>
+            }}> <FontAwesomeIcon icon={faChevronLeft}/> </button>
 
             {/* Right */}
             <button className="control-button" onClick={(e) => {
 
-            }}> Right </button>
-
-            {/* Rotate */}
-            <button className="control-button" onClick={(e) => {
-
-            }}> Rotate </button>
+            }}> <FontAwesomeIcon icon={faChevronRight}/> </button>
 
             {/* Down */}
             <button className="control-button" onClick={(e) => {
 
-            }}> Down </button>
+            }}> <FontAwesomeIcon icon={faChevronDown}/> </button>
 
+            {/* Rotate */}
+            <button className="control-button" onClick={(e) => {
+
+            }}> <FontAwesomeIcon icon={faUndo}/> </button>
+            
         </div>
     )
 }
