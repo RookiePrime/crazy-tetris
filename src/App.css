@@ -1,38 +1,35 @@
-.App {
-  text-align: center;
+body {
+  background-color: #ffffff;
+  opacity: 1;
+  background-image:  linear-gradient(#d1d1d3 1px, transparent 1px), linear-gradient(to right, #d1d1d3 1px, #ffffff 1px);
+  background-size: 6rem 6rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn-login, .btn-start {
+  background-color: #52B3D1;
+  color: black
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn-login:hover, .btn-start:hover {
+  border: 2px #52B3D1 solid;
+  background-color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.btn-settings, .btn-about, .btn-score{
+  background-color: white;
+}
+
+.btn-score:hover {
+  background-color: gold;
+  color:white;
+}
+
+.btn-about:hover {
+  background-color: red;
+  color:white;
+}
+
+.btn-settings:hover {
+  background-color: #0341AE;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
