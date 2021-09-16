@@ -1,7 +1,3 @@
-export const random = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min
-}
-
 // Returns the default grid
 export const gridDefault = () => {
     const rows = 18
@@ -130,6 +126,10 @@ export const shapes = [
 ]
 
 // Random Shape
+export const random = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
 export const randomShape = () => {
     return random(1, shapes.length - 1)
 }
