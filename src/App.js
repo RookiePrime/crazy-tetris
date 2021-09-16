@@ -7,12 +7,20 @@ import Controls from './components/Controls';
 import { generateBoard } from './utils/gameHelpers';
 
 function App() {
-  const [board, setBoard] = useState(generateBoard)
+  const [board, setBoard] = useState(generateBoard);
+  const [piece, setPiece] = useState({});
 
   return (
     <div className="App" >
-      <Board board={ board } />
-      <Controls board={ board } setBoard={ setBoard } />
+      <Board        
+        board={ board }
+      />
+      <Controls 
+        board={ board }
+        setBoard={ setBoard }
+        piece={ piece }
+        setPiece={ setPiece } 
+      />
     </div>
   );
 }
