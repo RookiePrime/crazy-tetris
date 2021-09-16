@@ -141,8 +141,8 @@ export const defaultState = () => {
       shape: randomShape(),
       rotation: 0,
       // put the shape in the center of the grid, above the top
-      x: 5,
-      y: -4,
+      x: 4,
+      y: -1,
       nextShape: randomShape(),
       score: 0,
       speed: 1000,
@@ -162,13 +162,13 @@ export const canMoveTo = (shape, grid, x, y, rotation) => {
 
   //loop through all rows and cols of the shape
   for (let row = 0; row < currentShape.length; row++) {
-    for(let col = 0; col < currentShape[row].length; row++) {
+    for(let col = 0; col < currentShape[row].length; col++) {
       //look for a 1
       if(currentShape[row][col] !== 0) {
         const proposedX = col + x;
         const proposedY = row + y;
         if(proposedY < 0) {
-          continue;
+          continue
         }
 
         //get the row on the grid
@@ -179,9 +179,9 @@ export const canMoveTo = (shape, grid, x, y, rotation) => {
           if(possibleRow[proposedX] === undefined || possibleRow[proposedX] !== 0) {
             return false;
           }
+        } else {
+          return false;
         }
-      } else {
-        return false;
       }
     }
   }
