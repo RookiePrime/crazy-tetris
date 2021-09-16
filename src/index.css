@@ -27,7 +27,7 @@
   --cols: 10;
   --rows: 18;
   --tile-size: 20px;
-  --border-width: 5px;
+  --border-width: 2px;
 }
 
 * {
@@ -67,6 +67,21 @@
   background-color: var(--color-7);
 }
 
+/* GridBoard display*/
+.grid-board {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--tile-size));
+  grid-gap: 0;
+  align-self: flex-start;
+}
+
+/* Next Block */
+.next-block {
+  display: grid;
+  grid-template-columns: repeat(4, var(--tile-size));
+  align-self: flex-start;
+}
+
 /* Grid Square */
 .grid-square {
   border-style: solid;
@@ -77,12 +92,4 @@
   border-top-color: var(--border-top-color);
   border-right-color: var(--border-right-color);
   border-bottom-color: var(--border-bottom-color);
-}
-
-/* GridBoard display*/
-.grid-board {
-  display: grid;
-  grid-template-columns: repeat(var(--cols), var(--tile-size));
-  grid-gap: 0;
-  align-self: flex-start;
 }
