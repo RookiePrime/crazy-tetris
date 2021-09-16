@@ -10,7 +10,7 @@ function Homepage( ) {
   return (
     <div className="text-center h-screen flex flex-col items-center justify-center gap-4">
         <header>
-            <h1 className="container mx-auto my-5">
+            <h1 className="my-5 mx-5">
                 <img src={require(`../../assets/images/Logo2.png`).default } className="w-auto h-36" alt="crazy teronimo logo"/>
             </h1>
         </header>
