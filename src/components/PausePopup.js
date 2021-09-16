@@ -1,11 +1,24 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
-// Displays a message
 export default function PausePopup(props) {
+  const isRunning = useSelector((state) => state.game.isRunning);
+  const gameOver = useSelector((state) => state.game.gameOver);
+
+  let message = '';
+  let isHidden = 'hidden';
+
+  if(gameOver) {
+    message = 'Game Over';
+    isHidden = '';
+  } else if (!isRunning) {
+    message = 'Pause';
+    isHidden = '';
+  }
+
   return (
-    <div className='pause-popup'>
-      <h1>Message Title</h1>
-      <p>Message info...</p>
+    <div className={`pause-popup ${isHidden}`}>
+      <h1> { message } </h1>
     </div>
   )
 }
