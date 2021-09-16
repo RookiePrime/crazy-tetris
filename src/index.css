@@ -7,7 +7,7 @@
   --border-right-color: rgba(0, 0, 0, 0.15);
   --border-bottom-color: rgba(0, 0, 0, 0.5);
 
-  /* Square Colors:  background colors for the squares.*/
+  /* Square Colors */
   --color-0: #eaeaea;
   --color-1: #FF971C;
   --color-2: #FFD500;
@@ -28,6 +28,10 @@
   --rows: 18;
   --tile-size: 20px;
   --border-width: 5px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /* Colors */
@@ -73,4 +77,12 @@
   border-top-color: var(--border-top-color);
   border-right-color: var(--border-right-color);
   border-bottom-color: var(--border-bottom-color);
+}
+
+/* GridBoard display*/
+.grid-board {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--tile-size));
+  grid-gap: 0;
+  align-self: flex-start;
 }
