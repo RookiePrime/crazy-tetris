@@ -9,8 +9,10 @@ import {
     GAME_OVER
 } from '../actions'
 
+import { defaultState } from '../utils'
+
 //define a function to handle the actions
-const gameReducer = (state = {}, action) => {
+const gameReducer = (state = defaultState(), action) => {
     switch(action.type) {
         case ROTATE:
     

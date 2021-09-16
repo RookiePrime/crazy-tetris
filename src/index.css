@@ -26,8 +26,8 @@
   /* Numbers define values that will be used throughout the CSS.*/
   --cols: 10;
   --rows: 18;
-  --tile-size: 20px;
-  --border-width: 2px;
+  --tile-size: 3vh;
+  --border-width: 1px;
 }
 
 * {
