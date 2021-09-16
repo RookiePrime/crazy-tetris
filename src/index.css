@@ -67,21 +67,6 @@
   background-color: var(--color-7);
 }
 
-/* GridBoard display*/
-.grid-board {
-  display: grid;
-  grid-template-columns: repeat(var(--cols), var(--tile-size));
-  grid-gap: 0;
-  align-self: flex-start;
-}
-
-/* Next Block */
-.next-block {
-  display: grid;
-  grid-template-columns: repeat(4, var(--tile-size));
-  align-self: flex-start;
-}
-
 /* Grid Square */
 .grid-square {
   border-style: solid;
@@ -94,13 +79,63 @@
   border-bottom-color: var(--border-bottom-color);
 }
 
+/* App */
+.App {
+  --col-side: calc(var(--tile-size) * 4);
+  --col-center: calc(var(--tile-size) * 10);
+  --grid-height: calc(var(--tile-size) * 18);
+
+  width: calc(var(--tile-size) * (4 + 1 + 10 + 1 + 4));
+  margin: auto;
+  display: grid;
+
+  grid-gap: var(--tile-size) var(--tile-size);
+  /* Defines three columns of `--col-side`, `--col-center`, and `--col-side` widths. */
+  grid-template-columns: var(--col-side) var(--col-center) var(--col-side);
+  /* Defines three rows of `100px`, `--grid-height`, and 100px. */
+  grid-template-rows: 100px var(--grid-height) 100px;
+
+/* This defines the areas on the grid with names: 'h', 'l', 'c', 'r',
+and 'b'. The '.' represents an empty cell on the grid. */
+  grid-template-areas: "h h h"
+                       "l c r"
+                       ". b .";
+}
+
+/* GridBoard display*/
+.grid-board {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--tile-size));
+  grid-gap: 0;
+  align-self: flex-start;
+  grid-area: c;
+}
+
+/* Next Block */
+.next-block {
+  display: grid;
+  grid-template-columns: repeat(4, var(--tile-size));
+  align-self: flex-start;
+  grid-area: r;
+}
+
 /* Score Board */
+.score-board {
+  grid-area: r;
+}
+
 .score-board-button {
   display: block;
   padding: 1em;
-  border-width: 5px;
+  border-width: 25x;
   border-top-color: var(--button-color-t);
   border-left-color: var(--button-color-l);
   border-right-color: var(--button-color-r);
   border-bottom-color: var(--button-color-b);
 }
+
+/* App-header */
+.App-header {
+  grid-area: h;
+}
+
