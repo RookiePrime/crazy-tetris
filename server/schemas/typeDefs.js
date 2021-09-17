@@ -14,13 +14,20 @@ const typeDefs = gql`
     email: String
   }
 
+  type Highscores {
+    _id: ID
+    highscore: String
+  }
+
   type Query {
     me: User
+    highscores(highscore: String): [Highscores]
   }
   
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addHighscore(highscore: String!): Highscores
   }
 `;
 
