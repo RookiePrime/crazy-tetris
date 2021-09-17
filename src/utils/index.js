@@ -190,19 +190,26 @@ export const canMoveTo = (shape, grid, x, y, rotation) => {
 
 // Add block to grid
 export const addBlockToGrid = (shape, grid, x, y, rotation) => {
-  // Get the block array
+  
+  let blockOffGrid = false;
   const block = shapes[shape][rotation];
-  // Copy the grid
-  const newGrid = [...grid];            
+  const newGrid = [...grid]; //copy the grid      
   // Map the Block onto the grid                                                           
   for (let row = 0; row < block.length; row++) {
       for (let col = 0; col < block[row].length; col++) {
           if (block[row][col]) {
-              newGrid[row + y][col + x] = shape;
+              const yIndex = row + y;
+              //if yIndex is less than 0, the block is off the screen
+              // game over
+              if(yIndex < 0) {
+                blockOffGrid = true;
+              } else {
+                newGrid[row + y][col + x] = shape;
+              }
           }
       }
   }
-  return newGrid;
+  return {grid: newGrid, gameOver: blockOffGrid};
 }
 
 // Checks for completed rows and scores points

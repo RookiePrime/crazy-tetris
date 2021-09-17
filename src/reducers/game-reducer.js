@@ -14,8 +14,7 @@ import {
     nextRotation,
     canMoveTo,
     addBlockToGrid,
-    checkRows,
-    randomShape
+    checkRows
 } from '../utils'
 
 //define a function to handle the actions
@@ -33,7 +32,7 @@ const gameReducer = (state = defaultState(), action) => {
         case MOVE_RIGHT:
             //add 1 from x and check if the new position is possible
             if(canMoveTo(shape, grid, x+1, y, rotation)) {
-                return { ...state, x: x+1 };
+                return { ...state, x: x + 1 };
             }
             return state
   
@@ -45,31 +44,40 @@ const gameReducer = (state = defaultState(), action) => {
             return state
   
         case MOVE_DOWN:
-            //get position of potential Y
-            const potentialY = y + 1;
-            if(canMoveTo(shape, grid, x, potentialY, rotation)) {
-                return {...state, y: potentialY};
-            }
-
-            // If block is placed
-            const newGrid = addBlockToGrid(shape, grid, x, y, rotation)
+            // Get the next potential Y position
+            const maybeY = y + 1
             
-            // reset some things to start a new shape/block
+            // Check if the current block can move here
+            if (canMoveTo(shape, grid, x, maybeY, rotation)) {
+                // If so move down don't place the block
+                return { ...state, y: maybeY }
+            }
+            
+            // If not place the block
+            // (this returns an object with a grid and gameover bool)
+            const obj = addBlockToGrid(shape, grid, x, y, rotation)
+            const newGrid = obj.grid
+            const gameOver = obj.gameOver
+            
+            if (gameOver) {
+                // Game Over
+                const newState = { ...state }
+                newState.shape = 0
+                newState.grid = newGrid
+                return { ...state, gameOver: true }
+            }
+            
+            // reset somethings to start a new shape/block
             const newState = defaultState()
             newState.grid = newGrid
             newState.shape = nextShape
-            newState.nextShape = randomShape()
             newState.score = score
             newState.isRunning = isRunning
-
-            if (!canMoveTo(nextShape, newGrid, 0, 4, 0)) {
-                // Game Over
-                newState.shape = 0
-                return { ...state, gameOver: true }
-            }
-            // Update the score based on if rows were completed or not
+            
+            // TODO: Check and Set level
+            // Score increases decrease interval
             newState.score = score + checkRows(newGrid)
-
+            
             return newState
   
         case RESUME:
@@ -86,7 +94,7 @@ const gameReducer = (state = defaultState(), action) => {
   
         case RESTART:
   
-            return state
+            return defaultState();
   
       default:
         return state

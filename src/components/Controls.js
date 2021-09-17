@@ -7,28 +7,45 @@ import { moveDown, moveLeft, moveRight, rotate } from "../actions";
 
 export default function Controls(props) {
     const dispatch = useDispatch();
-    const isRunning = useSelector((state) => state.isRunning)
+    const isRunning = useSelector((state) => state.game.isRunning)
+    const gameOver = useSelector((state) => state.game.gameOver)
 
     return (
         <div className="controls">
             {/* Left */}
-            <button className="control-button" onClick={(e) => {
-                dispatch(moveLeft())
-            }}> <FontAwesomeIcon icon={faChevronLeft}/> </button>
+            <button 
+                className="control-button" 
+                disabled={!isRunning || gameOver}
+                onClick={(e) => {
+                    if (!isRunning || gameOver) { return }
+                    dispatch(moveLeft())
+                }}
+            > <FontAwesomeIcon icon={faChevronLeft}/> </button>
 
             {/* Right */}
-            <button className="control-button" onClick={(e) => {
-                dispatch(moveRight())
+            <button 
+                className="control-button" 
+                disabled={!isRunning || gameOver}
+                onClick={(e) => {
+                    if (!isRunning || gameOver) { return }
+                    dispatch(moveRight())
             }}> <FontAwesomeIcon icon={faChevronRight}/> </button>
 
             {/* Down */}
-            <button className="control-button" onClick={(e) => {
+            <button className="control-button" 
+                disabled={!isRunning || gameOver}
+                onClick={(e) => {
+                if (!isRunning || gameOver) { return }
                 dispatch(moveDown())
             }}> <FontAwesomeIcon icon={faChevronDown}/> </button>
 
             {/* Rotate */}
-            <button className="control-button" onClick={(e) => {
-                dispatch(rotate())
+            <button 
+                className="control-button" 
+                disabled={!isRunning || gameOver}
+                onClick={(e) => {
+                    if (!isRunning || gameOver) { return }
+                    dispatch(rotate())
             }}> <FontAwesomeIcon icon={faUndo}/> </button>
             
         </div>

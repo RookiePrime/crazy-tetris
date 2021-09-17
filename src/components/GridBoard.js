@@ -16,11 +16,6 @@ export default function GridBoard(props) {
     const blockColor = shape
 
     //get the blocks to move down the screen
-    useEffect(() => {
-        requestRef.current = requestAnimationFrame(update);
-        return () => cancelAnimationFrame(requestRef.current)
-    }, [isRunning]);
-
     const update = (time) => {
         requestRef.current = requestAnimationFrame(update)
         if (!isRunning) {
@@ -39,6 +34,11 @@ export default function GridBoard(props) {
         }
         lastUpdateTimeRef.current = time;
     }
+    
+    useEffect(() => {
+        requestRef.current = requestAnimationFrame(update);
+        return () => cancelAnimationFrame(requestRef.current)
+    }, [isRunning]);
 
     //map rows
     const gridSquares = grid.map((rowArray, row) => {

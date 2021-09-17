@@ -121,8 +121,8 @@ and 'b'. The '.' represents an empty cell on the grid. */
 
 /* Score Board */
 .score-board {
-  grid-area: r;
-  margin-top: 150px;
+  grid-area: l;
+  margin-top: 40vh;
 }
 
 .score-board-button {
