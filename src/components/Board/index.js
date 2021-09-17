@@ -6,10 +6,10 @@ const Board = ({ board }) => {
     return (
         <div className='board'>
             {
-                board.map(column => {
-                    return column.map((cell, i) => {
+                board.map((row, j) => {
+                    return row.map((cell, i) => {
                         return <Cell 
-                                    key={i} 
+                                    key={`row-${j}/cell-${i}`} 
                                     start={cell.spawn} 
                                     cellType={cell.contents}
                                     color={cell.color}
