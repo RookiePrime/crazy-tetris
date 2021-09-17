@@ -50,25 +50,38 @@ const Controls = ({ board, setBoard, piece, setPiece }) => {
         console.log('Start!');
     };
 
+    function eraseBlock(updatedBoard) {
+        for (let i = 0; i < piece.position.length; i++) {
+            const oldSquare = [piece.position[i][0], piece.position[i][1]];
+            updatedBoard[oldSquare[0]][oldSquare[1]].contents = 'clear';
+        }
+    };
+
+    function drawBlock(updatedBoard, newPos) {
+        for (let i = 0; i < newPos.length; i++) {
+            // console.log(piece.position[i][0], piece.position[i][1]);
+            const newSquare = [newPos[i][0], newPos[i][1]];
+            // console.log(board[newSquare[0]][newSquare[1]])
+            
+            updatedBoard[newSquare[0]][newSquare[1]].contents = `${piece.name}block ${piece.color}`;
+        }
+    };
+
     function moveDown() {
         console.log('Down!');
 
-        const newPos = [...(piece.position.map(pos => {
-            pos[0]++;
-            return pos;
-        }))];
+        const newPos = piece.position.map(pos => [pos[0] + 1, pos[1]]);
         const updatedBoard = [...board];
-        console.log(newPos);
-        for (let i = 0; i < newPos.length; i++) {
-            console.log(piece.position[i][0], piece.position[i][0]);
-            updatedBoard[piece.position[i][0]][piece.position[i][0]].contents = 'clear';
-            updatedBoard[newPos[i][0]][newPos[i][1]].contents = `${piece.name}block ${piece.color}`;
+        console.log(newPos, piece);
+        if (!newPos.find(pos => pos[0] > 19)) {
+            eraseBlock(updatedBoard);
+            drawBlock(updatedBoard, newPos);
+            setPiece({
+                ...piece,
+                position: newPos
+            });
+            setBoard(updatedBoard);
         }
-        setPiece({
-            ...piece,
-            position: newPos
-        });
-        setBoard(updatedBoard);
     };
 
     return (

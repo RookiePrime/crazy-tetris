@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Cell = props => {
+const Cell = ({ cellType, color, start }) => {
 
     return (
-        <div className={`cell ${props.cellType === 'clear' ? '' : `${props.cellType} ${props.color}`} ${props.start ? 'start' : ''}`}>
+        <div className={`cell ${cellType === 'clear' ? '' : `${cellType} ${color}`} ${start ? 'start' : ''}`}>
             {' '}
         </div>
     );
