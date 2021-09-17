@@ -54,7 +54,7 @@ const Controls = ({ board, setBoard, piece, setPiece }) => {
 
     function removeOldPlayer(updatedBoard, i) {
         const oldSquare = [piece.position[i][0], piece.position[i][1]];
-        updatedBoard[oldSquare[0]][oldSquare[1]].player = 'false';
+        updatedBoard[oldSquare[0]][oldSquare[1]].player = false;
     };
 
     function eraseBlock(updatedBoard) {
@@ -89,11 +89,9 @@ const Controls = ({ board, setBoard, piece, setPiece }) => {
         for (let i = 0; i < newPos.length; i++) {
             const pos = newPos[i];
             const square = board[pos[0]][pos[1]];
-            console.log(square.player);
-            if (!square.player || square.player === false) console.log(square.player, '!square.player');
-            if (square.contents !== 'clear') console.log('square.contents !== clear');
+            // If the next square isn't the player's own square and if it's not a clear square, it's an obstacle!
             if (!square.player && square.contents !== 'clear') {
-                console.log('hello');
+                return false;
             }
         }
 
