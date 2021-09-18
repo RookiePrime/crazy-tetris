@@ -1,12 +1,19 @@
 const tetrominos = [
     {
         name: 'L',
-        height: 2,
-        width: 3,
         design: [
-            ['L', 'clear'],
-            ['L', 'clear'],
-            ['L', 'L']
+            [
+                ['clear', 'clear', 'clear', 'clear'],
+                ['clear', 'L', 'clear', 'clear'],
+                ['clear', 'L', 'clear', 'clear'],
+                ['clear', 'L', 'L', 'clear']
+            ],
+            [
+                ['clear', 'clear', 'clear', 'clear'],
+                ['L', 'L', 'L', 'clear'],
+                ['L', 'clear', 'clear', 'clear'],
+                ['clear', 'clear', 'clear', 'clear']
+            ],
         ],
         origin: [1, 0],
         color: 'blue'

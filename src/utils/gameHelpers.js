@@ -3,7 +3,7 @@ export const generateBoard = () => {
     const x = 12;
     
     // Where the blocks spawn
-    const spawn = Math.floor(x / 2);
+    // const spawn = Math.floor(x / 2);
     // The initial empty array
     const boardArr = [];
 
@@ -16,7 +16,7 @@ export const generateBoard = () => {
         }
     }
 
-    boardArr[0][spawn].spawn = true;
+    // boardArr[0][spawn].spawn = true;
 
     return boardArr;
 };
