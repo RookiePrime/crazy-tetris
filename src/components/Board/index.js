@@ -10,7 +10,6 @@ const Board = ({ board }) => {
                     return row.map((cell, i) => {
                         return <Cell 
                                     key={`row-${j}/cell-${i}`} 
-                                    start={cell.spawn} 
                                     cellType={cell.contents}
                                     color={cell.color}
                                 />;

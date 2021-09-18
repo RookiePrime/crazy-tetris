@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Cell = ({ cellType, color, start }) => {
+const Cell = ({ cellType, color }) => {
 
     return (
-        <div className={`cell ${cellType === 'clear' ? '' : `${cellType} ${color}`} ${start ? 'start' : ''}`}>
-            {' '}
-        </div>
+        <div 
+            className={`cell ${cellType === 'clear' ? '' : `${cellType} ${color}`}`}
+        ></div>
     );
 };
 
