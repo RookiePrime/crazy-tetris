@@ -4,8 +4,8 @@ import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 function Profile() {
     return(
-    <div className="container mx-auto flex h-screen">
-        <div className="frame ">
+    <div className="container mx-auto flex h-screen items-center justify-center">
+        <div className="frame flex">
             HELLO
             <FontAwesomeIcon icon={faCoffee}/>
 
