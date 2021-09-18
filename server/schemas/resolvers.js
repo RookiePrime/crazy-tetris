@@ -17,7 +17,8 @@ const resolvers = {
       
       highscores: async (parent, { username }) => {
         const params = username ? { username } : {};
-        return Highscores.find(params);
+        return Highscores.find(params)
+        .sort({ createdAt: -1 });
       },
     },
 
@@ -45,15 +46,13 @@ const resolvers = {
       },
         addHighscore: async (parent, args, context) => {
           if (context.user) {
-            const highscore = await Highscores.create({ ...args, username: context.user.username });
-        console.log(highscore.highscore);
+            const data = await Highscores.create({ ...args, username: context.user.username });
             await User.findByIdAndUpdate(
               { _id: context.user._id },
-              { $push: { highscore: highscore.highscore } },
+              { $push: { highscore: data.highscore } },
               { new: true }
             );
-        
-            return highscore;
+            return data;
           }
         
           throw new AuthenticationError('You need to be logged in!');

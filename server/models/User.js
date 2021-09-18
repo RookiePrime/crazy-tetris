@@ -20,10 +20,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    highscore: [
+    highscores: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Highscores'
+        ref: 'Highscore'
       }
     ]
   }
