@@ -33,3 +33,13 @@ body {
   background-color: #0341AE;
   color: white;
 }
+
+.frame {
+  width: 80%;
+  background-color: #FFBF42;
+  outline: none;
+  box-shadow: 7px 7px rgba(77, 40, 40, 0.5);
+  transform: translate(-1px, -1px);
+  border-radius: 1em;
+  height: 80%;
+}
