@@ -15,10 +15,10 @@ export default function NextBlock(props) {
     })
 
     return (
-        <div class="next-block-container">
+        <div className="next-block-container">
         NEXT
-        <div class="next-block">
-            <div className>
+        <div className="next-block">
+            <div>
                 {grid}
             </div>
         </div>

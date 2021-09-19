@@ -10,6 +10,7 @@ export default function Controls(props) {
     const isRunning = useSelector((state) => state.game.isRunning)
     const gameOver = useSelector((state) => state.game.gameOver)
 
+
     return (
         <div className="controls">
             {/* Left */}
@@ -34,7 +35,8 @@ export default function Controls(props) {
             {/* Down */}
             <button className="control-button" 
                 disabled={!isRunning || gameOver}
-                onClick={(e) => {
+                
+                    onClick={(e) => {
                 if (!isRunning || gameOver) { return }
                 dispatch(moveDown())
             }}> <FontAwesomeIcon icon={faCaretDown}/> </button>

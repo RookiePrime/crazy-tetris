@@ -64,6 +64,10 @@
   background-color: var(--color-7);
 }
 
+.color-8 {
+  background-color: var(--color-8);
+}
+
 /* Grid Square */
 .grid-square {
   border-style: solid;
