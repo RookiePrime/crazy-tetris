@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUndo,faChevronDown, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faUndo ,faCaretRight, faCaretLeft, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 //useDispatch hook to call actions
 import { useSelector, useDispatch } from "react-redux";
 import { moveDown, moveLeft, moveRight, rotate } from "../actions";
@@ -20,7 +20,7 @@ export default function Controls(props) {
                     if (!isRunning || gameOver) { return }
                     dispatch(moveLeft())
                 }}
-            > <FontAwesomeIcon icon={faChevronLeft}/> </button>
+            > <FontAwesomeIcon icon={faCaretLeft} size='4x'/> </button>
 
             {/* Right */}
             <button 
@@ -29,7 +29,7 @@ export default function Controls(props) {
                 onClick={(e) => {
                     if (!isRunning || gameOver) { return }
                     dispatch(moveRight())
-            }}> <FontAwesomeIcon icon={faChevronRight}/> </button>
+            }}> <FontAwesomeIcon icon={faCaretRight}/> </button>
 
             {/* Down */}
             <button className="control-button" 
@@ -37,7 +37,7 @@ export default function Controls(props) {
                 onClick={(e) => {
                 if (!isRunning || gameOver) { return }
                 dispatch(moveDown())
-            }}> <FontAwesomeIcon icon={faChevronDown}/> </button>
+            }}> <FontAwesomeIcon icon={faCaretDown}/> </button>
 
             {/* Rotate */}
             <button 

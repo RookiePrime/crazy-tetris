@@ -6,7 +6,7 @@ import {
     PAUSE,
     RESUME,
     RESTART,
-    GAME_OVER
+    GAME_OVER,
 } from '../actions'
 
 import {

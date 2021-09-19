@@ -10,6 +10,7 @@ import NextBlock from './components/NextBlock'
 import ScoreBoard from './components/ScoreBoard'
 import Controls from './components/Controls'
 import PausePopup from './components/PausePopup'
+import Settings from './components/Settings';
 
 const store = createStore(reducers)
 
@@ -17,11 +18,14 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
+        <div className="gameboard">
         <GridBoard />
+        <PausePopup />
+        </div>
         <NextBlock />
         <ScoreBoard />
+        <Settings/>
         <Controls />
-        <PausePopup />
       </div>
     </Provider>
   );

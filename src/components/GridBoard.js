@@ -62,8 +62,8 @@ export default function GridBoard(props) {
     });
 
     return (
-        <div className='grid-board'>
-            {gridSquares}
-        </div>
+            <div className='grid-board'>
+                {gridSquares}
+            </div>
     )
 }

@@ -141,8 +141,8 @@ export const defaultState = () => {
       shape: randomShape(),
       rotation: 0,
       // put the shape in the center of the grid, above the top
-      x: 4,
-      y: -1,
+      x: 3,
+      y: -3,
       nextShape: randomShape(),
       score: 0,
       speed: 1000,

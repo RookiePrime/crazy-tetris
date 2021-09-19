@@ -15,8 +15,13 @@ export default function NextBlock(props) {
     })
 
     return (
-        <div className="next-block">
-            {grid}
+        <div class="next-block-container">
+        NEXT
+        <div class="next-block">
+            <div className>
+                {grid}
+            </div>
+        </div>
         </div>
     )
 }
