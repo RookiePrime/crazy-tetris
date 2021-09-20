@@ -26,14 +26,14 @@ export default function PausePopup(props) {
       <h1> {message} </h1>
 
       <button className="popup-button" onClick={(e) => {
-        if(gameOver) { <Highscore/> }
+        if(gameOver) { dispatch(restart()) }
         if(!isRunning) { dispatch(resume()) }
       }}>
         { gameOver ? 'RESTART' : 'RESUME' }
       </button>
 
       <button className="popup-button" onClick={(e) => {
-        if(gameOver) { dispatch(restart()) }
+        if(gameOver) { <Highscore/> }
         // if(!isRunning)
       }}>{ gameOver ? 'HIGHSCORE' : 'QUIT GAME' }</button>
 

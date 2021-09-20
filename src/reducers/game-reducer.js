@@ -15,12 +15,13 @@ import {
     canMoveTo,
     addBlockToGrid,
     checkRows,
-    levelUp
+    levelUp,
+    speedIncrease
 } from '../utils'
 
 //define a function to handle the actions
 const gameReducer = (state = defaultState(), action) => {
-    const { shape, grid, x, y, rotation, nextShape, score, isRunning, level } = state;
+    const { shape, grid, x, y, rotation, nextShape, score, isRunning, level, speed } = state;
 
     switch(action.type) {
         case ROTATE:
@@ -75,10 +76,12 @@ const gameReducer = (state = defaultState(), action) => {
             newState.score = score
             newState.isRunning = isRunning
             newState.level = level
+            newState.speed = speed
             
             // Score & level increases decrease interval
             newState.score = score + checkRows(newGrid)
             newState.level = level + levelUp(newState.score);
+            newState.speed = speed - speedIncrease(newState.level);
 
             
             return newState

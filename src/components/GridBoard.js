@@ -22,7 +22,7 @@ export default function GridBoard(props) {
             return;
         }
         if (!lastUpdateTimeRef.current) {
-            lastUpdateTimeRef.current = time;
+            lastUpdateTimeRef.current = speed;
         }
 
         const updatedTime = time - lastUpdateTimeRef.current
