@@ -9,13 +9,23 @@ export default function ScoreBoard(props) {
         <div className="score-board">
 
             <div className="score">
-                SCORE
-                <div>{ score }</div>
+                <h3>SCORE</h3>
+                <div>
+                <h4> 
+                    <span className="ghost">000</span>
+                    { score } 
+                </h4> 
+                </div>
             </div>
 
-            <div className="score">
-                LEVEL
-                <div> { level } </div>
+            <div className="level">
+                <h3>LEVEL</h3>
+                <div> 
+                   <h4> 
+                        <span className="ghost">000</span>
+                       { level } 
+                    </h4>
+                </div>
             </div>
         </div>
     )
