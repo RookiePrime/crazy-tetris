@@ -1,6 +1,7 @@
-const { User } = require('../models');
+const { User, Highscores } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
+const Highscore = require('../models/Highscores');
 
 const resolvers = {
     Query: {
@@ -13,6 +14,9 @@ const resolvers = {
         }
       
         throw new AuthenticationError('Not logged in');
+      },
+      highscores: async () => {
+        return Highscores.find().sort('-highscore').limit(5);
       }
     },
 
@@ -37,6 +41,10 @@ const resolvers = {
         }
         const token = signToken(user);
         return { token, user };
+      },
+      addScore: async (parent, { highscore, username }) => {
+        const newScore = await Highscore.create({ highscore, username })
+        return newScore;
       }
     }
   };

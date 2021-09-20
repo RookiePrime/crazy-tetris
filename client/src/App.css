@@ -78,7 +78,7 @@ input{
   position: absolute;
 }
 
-.profile-font, table, .total-lines{
+.profile-font, table, .total-lines {
   font-family: 'Roboto Mono', 'monospace';
 }
 
@@ -163,3 +163,26 @@ hr {
   bottom: 6%;
   right: 20%;
 }
+
+/* High Scores Styling begins here */
+
+.h3-headline {
+  font-family: 'Roboto Mono', 'monospace';
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.h4-body {
+  font-family: 'Roboto Mono', 'monospace';
+  font-size: 20px;
+}
+
+.modal {
+  height: 465px;
+  max-height: 465px;
+  width: 615px;
+  max-width: 615px;
+  min-width: 150px;
+}
+
+/* High Scores styling ends here */
