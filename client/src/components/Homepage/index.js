@@ -48,13 +48,14 @@ function Homepage( ) {
         <Modal 
         isOpen={(modalIsOpen)}
         onRequestClose={() => setModalIsOpen(false)}
-        className="container mx-auto h-screen flex flex-col items-center justify-center gap-4"
+        className="login-signup box-content h-2/5 w-2/5 container mx-auto my-56 p-10 rounded flex flex-col items-center justify-center gap-4 bg-yellow-400 relative"
         >
-            <button onClick={() => setModalIsOpen(false)}>
-                <FontAwesomeIcon icon={faTimes} className={`text-4xl`}/>
+            <button onClick={() => setModalIsOpen(false)} className="text-4xl">
+                <FontAwesomeIcon icon={faTimes} className={`text-4xl absolute top-3 right-10`}/>
             </button>
             
             <Login />
+
         </Modal>
 
     </div>

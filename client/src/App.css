@@ -33,3 +33,7 @@ body {
   background-color: #0341AE;
   color: white;
 }
+
+.login-signup {
+  box-shadow: 10px 10px #E6E2E1;
+}
