@@ -12,7 +12,7 @@ export default function ScoreBoard(props) {
                 <h3>SCORE</h3>
                 <div>
                 <h4> 
-                    <span class="ghost">000</span>
+                    <span className="ghost">000</span>
                     { score } 
                 </h4> 
                 </div>
@@ -22,7 +22,7 @@ export default function ScoreBoard(props) {
                 <h3>LEVEL</h3>
                 <div> 
                    <h4> 
-                        <span class="ghost">000</span>
+                        <span className="ghost">000</span>
                        { level } 
                     </h4>
                 </div>
