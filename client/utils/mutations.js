@@ -23,3 +23,11 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_HIGHSCORE = gql`
+  mutation addHighscore($highscore: String!) {
+    addHighscore(highscore: $highscore) {
+      highscore
+    }
+  }
+`;
