@@ -39,9 +39,8 @@ class Login extends Component {
                 <input 
                     type="text" 
                     value={this.state.username}
-                    size="50"
                     onChange={this.handleUsernameChange}
-                    className={`${inputField} w-full`}
+                    className={`${inputField}`}
                     placeholder="Username"
                 />
 
@@ -50,7 +49,7 @@ class Login extends Component {
                 <input 
                     type="password"
                     value={this.state.password}
-                    
+                    size="50"
                     className={`${inputField}`} 
                     onChange={this.handlePwdChange}
                     placeholder="Password"

@@ -17,7 +17,7 @@ function Profile() {
                     <div className="">
                         <div class="input-wrapper wrapper">
                             <label htmlFor="username" icon={faUser}><FontAwesomeIcon class="user-icon" icon={faUser}/> </label>
-                            <input type="text" htmlFor="username" id="username" class="rounded-2xl text-black-500" placeholder="newuser432"/>
+                            <input type="text" htmlFor="username" id="username" class="rounded-2xl text-black-500 profile-input" placeholder="newuser432"/>
                         </div>
                     </div>
                 </div>

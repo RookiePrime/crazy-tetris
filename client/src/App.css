@@ -61,7 +61,7 @@ body {
   left: 100%;
 }
 
-input{
+.profile-input{
   padding: 10% 10% 10% 150%;
   width: 300%;
   font-family: 'Roboto Mono', monospace;
