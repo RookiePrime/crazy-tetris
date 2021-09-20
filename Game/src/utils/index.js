@@ -284,3 +284,30 @@ export const speedIncrease = (currentLevel) => {
   }
   return speedInc;
 }
+
+export const keyboardPress = () => {
+  // A fake click! It's a real click, but performed by us, not the user.
+  const clickEvent = new MouseEvent('click', {
+    "view": window,
+    "bubbles": true,
+    "cancelable": false
+  });
+  // The meat of the matter. The document itself listens for keyboard presses. It performs a switch-case based on which key is pressed; if the key that's pressed isn't one of the cases, then it doesn't do anything.
+  document.addEventListener('keydown', e => {
+    const keyPressed = e.key;
+
+    switch (keyPressed) {
+        case 'ArrowRight':
+            document.querySelector('#right-btn').dispatchEvent(clickEvent);
+            break;
+        case 'ArrowLeft':
+            document.querySelector('#left-btn').dispatchEvent(clickEvent);
+            break;
+        case 'ArrowDown':
+            document.querySelector('#down-btn').dispatchEvent(clickEvent);
+            break;
+        default :
+            break;
+    };
+  });
+};

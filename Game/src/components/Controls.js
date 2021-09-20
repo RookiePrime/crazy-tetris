@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUndo ,faCaretRight, faCaretLeft, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 //useDispatch hook to call actions
 import { useSelector, useDispatch } from "react-redux";
 import { moveDown, moveLeft, moveRight, rotate } from "../actions";
+import { keyboardPress } from "../utils";
 
 export default function Controls(props) {
     const dispatch = useDispatch();
     const isRunning = useSelector((state) => state.game.isRunning)
     const gameOver = useSelector((state) => state.game.gameOver)
 
+    // Allows for control of the game via the keyboard.
+    useEffect(() => {
+        keyboardPress();
+    }, []);
 
     return (
         <div className="controls">
             {/* Left */}
             <button 
+                id='left-btn'
                 className="control-button" 
                 disabled={!isRunning || gameOver}
                 onClick={(e) => {
@@ -25,6 +31,7 @@ export default function Controls(props) {
 
             {/* Right */}
             <button 
+                id='right-btn'
                 className="control-button" 
                 disabled={!isRunning || gameOver}
                 onClick={(e) => {
@@ -33,7 +40,9 @@ export default function Controls(props) {
             }}> <FontAwesomeIcon icon={faCaretRight}/> </button>
 
             {/* Down */}
-            <button className="control-button" 
+            <button 
+                id='down-btn' 
+                className="control-button" 
                 disabled={!isRunning || gameOver}
                 
                     onClick={(e) => {
