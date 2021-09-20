@@ -5,12 +5,12 @@ body {
   background-size: 6rem 6rem;
 }
 
-.btn-login, .btn-start {
+.btn-action {
   background-color: #52B3D1;
   color: black
 }
 
-.btn-login:hover, .btn-start:hover {
+.btn-action:hover{
   border: 2px #52B3D1 solid;
   background-color: white;
 }

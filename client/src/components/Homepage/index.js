@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faInfoCircle, faTrophy } from '@fortawesome/free-solid-svg-icons'
+import { faCog, faInfoCircle, faTrophy, faTimes } from '@fortawesome/free-solid-svg-icons';
+import Modal from 'react-modal';
+import Login from '../Login';
+
+Modal.setAppElement('#root');
 
 function Homepage( ) {
+
+    const [actions] = useState([
+        { name: 'LOGIN' },
+        { name: 'START GAME'}
+      ])
+
+    const [modalIsOpen, setModalIsOpen]= useState(false);
 
     const menuBtnClass = "mx-2 opacity-100 bg-white-900 rounded-full shadow-md p-3";
     const hover = "transform transition duration-300 ease-in-out hover:scale-110";
@@ -16,9 +27,16 @@ function Homepage( ) {
         </header>
 
         <section className="flex flex-col gap-4">
-            <button className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-login ${hover}`}>LOGIN</button>
-            <button className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-start mb-3 ${hover}`}>START GAME</button>
-            
+            {actions.map((action) => (
+                <button 
+                className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover} `}
+                onClick = { () => setModalIsOpen(true)}
+                key={action.name}
+                >
+                    { action.name }
+                </button>
+            ))}
+
             <div className="flex flex-row gap-4 my-5">
                 <FontAwesomeIcon icon={faCog} className={`${menuBtnClass} ${hover} btn-settings hover:rotate-180 text-6xl`}/>
                 <FontAwesomeIcon icon={faInfoCircle} className={`${menuBtnClass} ${hover} btn-about text-6xl`}/>
@@ -26,6 +44,18 @@ function Homepage( ) {
             </div>
             
         </section>
+
+        <Modal 
+        isOpen={(modalIsOpen)}
+        onRequestClose={() => setModalIsOpen(false)}
+        className="container mx-auto h-screen flex flex-col items-center justify-center gap-4"
+        >
+            <button onClick={() => setModalIsOpen(false)}>
+                <FontAwesomeIcon icon={faTimes} className={`text-4xl`}/>
+            </button>
+            
+            <Login />
+        </Modal>
 
     </div>
   );
