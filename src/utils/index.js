@@ -151,6 +151,7 @@ export const defaultState = () => {
       y: -3,
       nextShape: randomShape(),
       score: 0,
+      level: 1,
       speed: 1000,
       // Tell the game that it's currently running
       isRunning: true,
@@ -221,7 +222,6 @@ export const addBlockToGrid = (shape, grid, x, y, rotation) => {
 // Checks for completed rows and scores points
 export const checkRows = (grid) => {
   // Points increase for each row completed
-  // i.e. 40 points for completing one row, 100 points for two rows
   const points = [0, 40, 100, 300, 1200]
   let completedRows = 0
   for (let row = 0; row < grid.length; row++) {
@@ -232,6 +232,31 @@ export const checkRows = (grid) => {
       grid.splice(row, 1)
       grid.unshift(Array(10).fill(0))
     }
+
   }
   return points[completedRows]
+}
+
+export const levelUp = (newScore) => {
+  let levelInc = 0;
+  if(newScore >= 200 && newScore < 400) {
+    levelInc++;
+  } else if (newScore >= 400 && newScore < 600) {
+    levelInc++;
+  } else if (newScore >= 600 && newScore < 800) {
+    levelInc++;
+  } else if (newScore >= 800 && newScore < 1000) {
+    levelInc++;
+  } else if (newScore >= 1000 && newScore < 1200) {
+    levelInc++;
+  } else if (newScore >= 1200 && newScore < 1400) {
+    levelInc++;
+  } else if (newScore >= 1400 && newScore < 1600) {
+    levelInc++;
+  } else if (newScore >= 1600 && newScore < 1800) {
+    levelInc++;
+  }  else if (newScore >= 1800 && newScore < 2000) {
+    levelInc++;
+  }
+  return levelInc;
 }
