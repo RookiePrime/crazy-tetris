@@ -31,6 +31,12 @@
   box-sizing: border-box;
 }
 
+h3,
+h4 {
+  font-size: 1.2em;
+  margin: 0;
+}
+
 /* Colors */
 .color-0 {
   background-color: var(--color-0);
@@ -79,19 +85,20 @@
 
 /* App */
 .App {
-  --col-side: calc(var(--tile-size) * 3);
+  --col-side: calc(var(--tile-size) * 5);
   --col-center: calc(var(--tile-size) * 12);
   --grid-height: calc(var(--tile-size) * 20);
 
-  width: calc(var(--tile-size) * (4 + 1 + 10 + 1 + 4));
-  margin: auto;
+  width: calc(var(--tile-size) * 24);
+  margin: 0 auto;
   display: grid;
 
-  font-family: 'Roboto Mono', monospace; 
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px; 
 
   grid-gap: var(--tile-size) var(--tile-size);
   grid-template-columns: var(--col-side) var(--col-center) var(--col-side);
-  grid-template-rows: 100px var(--grid-height) 100px;
+  grid-template-rows: 100px var(--grid-height) 300px;
 
 /* This defines the areas on the grid with names: 'h', 'l', 'c', 'r',
 and 'b'. The '.' represents an empty cell on the grid. */
@@ -124,27 +131,32 @@ and 'b'. The '.' represents an empty cell on the grid. */
   text-align: center;
 }
 
-.score-board div:not(:first-child) {
-  margin-top: 5vh;
-}
 
-.score {
-  height: 5vh;
-  width: calc(var(--tile-size) * 4);
+.score,
+.level {
+  width: calc(var(--tile-size) * 5);
   text-align: center;
 }
 
-.score div {
+.score h4,
+.level h4 {
+  color: var(--color-1);
+}
+
+.level {
+  margin-top: 5vh;
+}
+
+.score div, .level div {
   background-color: var(--color-0);
-  height: 4vh;
   border-radius: 5px;
+  padding: 0.5vh 0;
   margin: 0 auto;
   text-align: center;
   box-shadow: var(--box-shadow);
   -webkit-box-shadow: var(--webkit-box-shadow);
+  font-size: 1.2em;
 }
-
-
 
 /* Next Block */
 .next-block-container {
@@ -175,8 +187,12 @@ and 'b'. The '.' represents an empty cell on the grid. */
 /* Setting Buttons */
 .settings {
   grid-area: l;
-  margin-top: 54.5vh;
+  margin-top: 54vh;
   display: flex;
+}
+
+.settings button:not(:first-child) {
+  margin-left: 20px
 }
 
 .setting-button {
@@ -184,7 +200,6 @@ and 'b'. The '.' represents an empty cell on the grid. */
   padding: 1em;
   background-color: var(--color-0);
   border: none;
-  margin-right: 10px;
   border-radius: 20px;
   width: fit-content;
   height: fit-content;
@@ -249,7 +264,7 @@ and 'b'. The '.' represents an empty cell on the grid. */
   height: calc(var(--tile-size) * 1.5);
   background-color: var(--color-8);
 
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-family: 'Roboto Mono', monospace; 
   font-weight: 500;
 
@@ -265,4 +280,61 @@ and 'b'. The '.' represents an empty cell on the grid. */
 
 .pause-popup.hidden {
   display: none;
+}
+
+/*- button active states -*/
+.control-button:active,
+.setting-button:active {
+  -webkit-box-shadow: none;
+  box-shadow: none; 
+}
+
+@media (max-width: 780px) {
+  
+  .App {
+    max-width: 100%;
+    overflow-x: hidden;
+    --grid-height: 55vh;
+    --col-center: 1;
+    grid-template-areas: "h h h"
+                         "l c r"
+                         "l b r"
+                         ". b .";
+
+  }
+  .gameboard {
+    margin-top: -50px;
+  }
+  .settings {
+    display: flex;
+    grid-area: b;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    margin-top: 10vh;
+  }
+
+  .settings button:not(:first-child) {
+    margin-top: 0;
+  }
+
+  .score-board {
+    grid-area: h;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .level {
+    margin: 0 0 0 2vh;
+  }
+
+  .next-block-container {
+    display: none;
+  }
+
+}
+
+.ghost {
+  color: lightgray;
 }
