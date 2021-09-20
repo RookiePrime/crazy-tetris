@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Highscores } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -13,7 +13,13 @@ const resolvers = {
         }
       
         throw new AuthenticationError('Not logged in');
-      }
+      },
+      
+      highscores: async (parent, { username }) => {
+        const params = username ? { username } : {};
+        return Highscores.find(params)
+        .sort({ createdAt: -1 });
+      },
     },
 
     Mutation: {
@@ -37,7 +43,20 @@ const resolvers = {
         }
         const token = signToken(user);
         return { token, user };
-      }
+      },
+        addHighscore: async (parent, args, context) => {
+          if (context.user) {
+            const data = await Highscores.create({ ...args, username: context.user.username });
+            await User.findByIdAndUpdate(
+              { _id: context.user._id },
+              { $push: data.highscore },
+              { new: true }
+            );
+            return data;
+          }
+        
+          throw new AuthenticationError('You need to be logged in!');
+        }
     }
   };
   
