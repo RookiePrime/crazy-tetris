@@ -49,7 +49,7 @@ const resolvers = {
             const data = await Highscores.create({ ...args, username: context.user.username });
             await User.findByIdAndUpdate(
               { _id: context.user._id },
-              { $push: { highscore: data.highscore } },
+              { $push: data.highscore },
               { new: true }
             );
             return data;
