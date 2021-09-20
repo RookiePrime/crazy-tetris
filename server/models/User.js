@@ -19,7 +19,13 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
-    }
+    },
+    highscores: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Highscore'
+      }
+    ]
   }
 );
 
