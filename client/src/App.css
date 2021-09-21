@@ -1,0 +1,209 @@
+body {
+  background-color: #ffffff;
+  opacity: 1;
+  background-image:  linear-gradient(#d1d1d3 1px, transparent 1px), linear-gradient(to right, #d1d1d3 1px, #ffffff 1px);
+  background-size: 6rem 6rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
+a {
+  cursor: pointer;
+}
+
+.btn-action {
+  background-color: #52B3D1;
+  color: black
+}
+
+
+.btn-action:hover, .btn-start-game:hover, .btn-sign-out:hover {
+  border: 2px #52B3D1 solid;
+  background-color: white;
+}
+
+.btn-settings, .btn-about, .btn-score{
+  background-color: white;
+}
+
+.btn-score:hover {
+  background-color: gold;
+  color:white;
+}
+
+.btn-about:hover {
+  background-color: red;
+  color:white;
+}
+
+.btn-settings:hover {
+  background-color: #0341AE;
+  color: white;
+}
+
+.modal-wrap{
+  box-shadow: 10px 10px #E6E2E1;
+}
+
+/* Profile styling starts here */
+.frame {
+  min-width: 80%;
+  background-color: #FFBF42;
+  outline: none;
+  box-shadow: 10px 10px rgba(77, 40, 40, 0.5);
+  border-radius: 1em;
+  height: 80%;
+  position: relative;
+}
+
+/* profile-logo */
+.profile-logo {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
+  0 2px 2px rgba(0,0,0,0.15), 
+  0 4px 4px rgba(0,0,0,0.15), 
+  0 8px 8px rgba(0,0,0,0.15);
+}
+
+/* profile username input */
+.user-icon {
+  position: absolute;
+  left: 15%;
+  top: calc(50% - 0.65em);
+  color: #52B3D1;
+  width: 30%;
+}
+
+/* profile-font and background */
+.profile-font, table, .total-lines {
+  font-family: 'Roboto Mono', 'monospace';
+}
+
+.profile-highscore, .total-lines, .trophies {
+  outline: none;
+  background-color: #FF971C;
+  border-radius: 1em;
+  box-shadow: 0px 5px rgba(77, 40, 40, 0.2);
+}
+
+/* profile table */
+td:nth-last-child {
+  padding-bottom: 10;
+  margin-bottom: 5%;
+}
+
+.col1 {
+  padding-left: 14%;
+}
+
+.col2 {
+  padding-left: 35%;
+  padding-right: 35%;  
+}
+
+hr {
+  border: 2px dashed #000;
+  width: 250%;
+  margin: 10% 0 0 45%;
+}
+
+/* total lines score board */
+.trophy-logo {
+  color: #E6E2E1;
+  padding-right: 1%;
+  font-size: 2rem;
+}
+
+.btn-start-game {
+  background-color: #52B3D1;
+  box-shadow: 0px 5px rgba(77, 40, 40, 0.2);
+  color: #000;
+}
+
+.btn-sign-out {
+  background-color: #E6E2E1;
+  box-shadow: 0px 5px rgba(77, 40, 40, 0.2);
+}
+/* Profile Styles ends here */
+
+
+.creator-list{
+  border-bottom: 3px dashed black;
+}
+
+.creator-list:hover{
+  color: red;
+  border-bottom: 3px dashed red;
+}
+
+.tech-list {
+  background-color: white;
+}
+
+/* High Scores Styling begins here */
+
+.h3-headline {
+  font-family: 'Roboto Mono', 'monospace';
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.p-body {
+  font-family: 'Roboto Mono', 'monospace';
+  font-size: 20px;
+}
+
+.modal {
+  height: 465px;
+  max-height: 465px;
+  width: 615px;
+  max-width: 615px;
+  min-width: 150px;
+}
+
+/* High Scores styling ends here */
+
+
+/* settings */
+.hammer{
+  transform: rotate(45deg);
+  animation-name: hammer;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes hammer {
+  from { transform: rotate(45deg);}
+  to { transform: rotate(0deg);}
+}
+
+.construction{
+  border: black dashed 2px;
+  padding: 2rem
+}
+
+
+/* media queries of profile page */
+@media screen and (max-width: 600px){
+
+  body {
+    background-color: #FFBF42;
+    opacity: 1;
+    background-image:  linear-gradient(#d1d1d3 1px, transparent 1px), linear-gradient(to right, #d1d1d3 1px, #FFBF42 1px);
+    background-size: 6rem 6rem;
+  }
+
+  .frame {
+    background-color: transparent;
+    box-shadow: none;
+    height: 100%;
+  }
+
+  .col2 {
+    padding-left: 15%;
+  }
+
+  .profile-right{
+    display: block;
+    width: 100%;
+    margin: 3% 0;
+  }
+}
