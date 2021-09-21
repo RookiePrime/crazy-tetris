@@ -50,15 +50,6 @@ function Homepage( ) {
         </header>
 
         <section className="flex flex-col gap-4">
-            {/* {actions.map((action) => (
-                <button 
-                className={`text-3xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover} `}
-                onClick = { () => {setModalIsOpen(true); setCurrentAction(action)}}
-                key={action.name}
-                >
-                    { action.name }
-                </button>
-            ))} */}
             <button
                 className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover}`}
                 onClick = { () => setModalIsOpen(true) }

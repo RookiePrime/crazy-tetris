@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { resume, restart } from '../../../actions';
 import { faUser } from "@fortawesome/free-solid-svg-icons"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Highscore from '../Highscores'
 
 export default function PausePopup(props) {
   const isRunning = useSelector((state) => state.game.isRunning);
@@ -33,12 +32,12 @@ export default function PausePopup(props) {
         { gameOver ? 'RESTART' : 'RESUME' }
       </button>
 
-      <Link to={ gameOver ? '/highscores' : '/' }>
+      <Link to='/'>
         <button className="popup-button" onClick={(e) => {
-          // dispatch(restart());
+          dispatch(restart());
           // if(gameOver) { <Highscore/> }
           // if(!isRunning)
-        }}>{ gameOver ? 'HIGHSCORE' : 'QUIT GAME' }</button>
+        }}>{ gameOver ? 'SAVE HIGHSCORE' : 'QUIT GAME' }</button>
       </Link>
 
       <p>

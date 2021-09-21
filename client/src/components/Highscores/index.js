@@ -15,12 +15,12 @@ const Highscores = () => {
                 {loading ?
                     <h3>Loading...</h3> :
                     scoresList.map((score, i) => (
-                        <div className='flex justify-between mx-10 score border-b-2 border-black border-dashed' key={i}>
+                        <div className='flex justify-between mx-10 border-b-2 border-black border-dashed' key={i}>
                             <div className='px-4 my-3'>
-                                <h4 className='h4-body'>{score.username}</h4>
+                                <p className='p-body'>{score.username}</p>
                             </div>
                             <div className='px-4 my-3'>
-                                <h4 className='h4-body'>{score.highscore}</h4>
+                                <p className='p-body'>{score.highscore}</p>
                             </div>
                         </div>
                     ))   

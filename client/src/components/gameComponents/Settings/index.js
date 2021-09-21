@@ -13,7 +13,7 @@ export default function Settings(props) {
     return (
         <div className="settings">
 
-            <button className="setting-button" onClick={(e) => {
+            <button id="pause-btn" className="setting-button" onClick={(e) => {
                 if(gameOver) {return}
                 if(isRunning) {
                     dispatch(pause());
