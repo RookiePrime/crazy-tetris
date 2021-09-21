@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faInfoCircle, faTrophy, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
-import Login from '../Login';
+import Login from '../../components/Login';
 
 Modal.setAppElement('#root');
 
 function Homepage( ) {
 
-    const [actions] = useState([
-        { name: 'LOGIN' },
-        { name: 'START GAME'}
-      ])
+    // const [actions] = useState([
+    //     { name: 'LOGIN' },
+    //     { name: 'START GAME'}
+    //   ])
 
     const [modalIsOpen, setModalIsOpen]= useState(false);
 
@@ -27,7 +28,7 @@ function Homepage( ) {
         </header>
 
         <section className="flex flex-col gap-4">
-            {actions.map((action) => (
+            {/* {actions.map((action) => (
                 <button 
                 className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover} `}
                 onClick = { () => setModalIsOpen(true)}
@@ -35,7 +36,16 @@ function Homepage( ) {
                 >
                     { action.name }
                 </button>
-            ))}
+            ))} */}
+            <button
+                className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover}`}
+                onClick = { () => setModalIsOpen(true) }
+            > LOGIN </button>
+            <Link to={'/game'}>
+                <button
+                    className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover}`}
+                > START GAME </button>
+            </Link>
 
             <div className="flex flex-row gap-4 my-5">
                 <FontAwesomeIcon icon={faCog} className={`${menuBtnClass} ${hover} btn-settings hover:rotate-180 text-6xl`}/>
