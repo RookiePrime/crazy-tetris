@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --bg-color: rgba(150, 150, 150, 1);
+
+  /* Border Colors are all transparent colors. These will tint or shade the background color of the square. */
+  --border-color: #DBDBDB;
+  --box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.25);
+  --webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.25); 
+
+
+  /* Square Colors */
+  --color-0: #F3F3F3;
+  --color-1: #FF971C;
+  --color-2: #FFD500;
+  --color-3: #0341AE;
+  --color-4: #E678E6;
+  --color-5: #72CB3B;
+  --color-6: #55DDE0;
+  --color-7: #FF3213;
+  --color-8: #52B3D1;
+
+  /* Numbers define values that will be used throughout the CSS.*/
+  --cols: 10;
+  --rows: 18;
+  --tile-size: 3vh;
+  --border-width: 1px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h3,
+h4 {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+/* Colors */
+.color-0 {
+  background-color: var(--color-0);
+}
+
+.color-1 {
+  background-color: var(--color-1);
+}
+
+.color-2 {
+  background-color: var(--color-2);
+}
+
+.color-3 {
+  background-color: var(--color-3);
+}
+
+.color-4 {
+  background-color: var(--color-4);
+}
+
+.color-5 {
+  background-color: var(--color-5);
+}
+
+.color-6 {
+  background-color: var(--color-6);
+}
+
+.color-7 {
+  background-color: var(--color-7);
+}
+
+.color-8 {
+  background-color: var(--color-8);
+}
+
+/* Grid Square */
+.grid-square {
+  border-style: solid;
+  width: var(--tile-size);
+  height: var(--tile-size);
+  border-width: var(--border-width);
+  border-color: var(--border-color);
+}
+
+/* App */
+.Game {
+  /* Text styling begins here */
+  text-align: center;
+  /* Text styling ends here */
+
+  --col-side: calc(var(--tile-size) * 5);
+  --col-center: calc(var(--tile-size) * 12);
+  /* --grid-height: calc(var(--tile-size) * 20); */
+
+  width: calc(var(--tile-size) * 24);
+  margin: 0 auto;
+  display: grid;
+
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px; 
+
+  grid-gap: var(--tile-size) var(--tile-size);
+  grid-template-columns: var(--col-side) var(--col-center) var(--col-side);
+  grid-template-rows: 100px var(--grid-height) 300px;
+
+/* This defines the areas on the grid with names: 'h', 'l', 'c', 'r',
+and 'b'. The '.' represents an empty cell on the grid. */
+  grid-template-areas: "h h h"
+                       "l c r"
+                       ". b .";
+}
+
+/* GridBoard display*/
+.gameboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-0);
+  border-radius: 20px;
+  grid-area: c;
+}
+
+.grid-board {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--tile-size));
+  grid-gap: 0;
+  align-self: center;
+  justify-content: center;
+}
+
+/* Score Board */
+.score-board {
+  grid-area: r;
+  text-align: center;
+}
+
+
+.score,
+.level {
+  width: calc(var(--tile-size) * 5);
+  text-align: center;
+}
+
+.score h4,
+.level h4 {
+  color: var(--color-1);
+}
+
+.level {
+  margin-top: 5vh;
+}
+
+.score div, .level div {
+  background-color: var(--color-0);
+  border-radius: 5px;
+  padding: 0.5vh 0;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  -webkit-box-shadow: var(--webkit-box-shadow);
+  font-size: 1.2em;
+}
+
+/* Next Block */
+.next-block-container {
+  grid-area: r;
+  margin-top: 42vh;
+  text-align: center;
+}
+
+.next-block {
+  background-color: grey;
+  height: fit-content;
+  width: 15vh;
+  height: 15vh;
+  margin-top: 1vh;
+
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-0);
+  border-radius: 20px;
+}
+
+.next-block div {
+  display: grid;
+  grid-template-columns: repeat(4, var(--tile-size));
+  align-self: center;
+}
+
+/* Setting Buttons */
+.settings {
+  grid-area: l;
+  margin-top: 54vh;
+  display: flex;
+}
+
+.settings button:not(:first-child) {
+  margin-left: 20px
+}
+
+.setting-button {
+  display: block;
+  padding: 1em;
+  background-color: var(--color-0);
+  border: none;
+  border-radius: 20px;
+  width: fit-content;
+  height: fit-content;
+  -webkit-box-shadow: var(--webkit-box-shadow);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+/* App-header */
+.App-header {
+  grid-area: h;
+}
+
+.controls {
+  grid-area: b;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.control-button {
+  --size: calc(var(--tile-size) * 2.5);
+  width: var(--size);
+  height: var(--size);
+  display: block;
+  border: var(--border-color);
+  border-radius: 20px;
+  margin: 5px;
+  background-color: var(--color-0);
+  -webkit-box-shadow: var(--webkit-box-shadow);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+.control-button .svg-inline--fa {
+  font-size: 4vh; 
+}
+
+/* Message Popup Styles */
+.pause-popup {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  transform: translate(-50%, -50%);
+  width: calc(var(--tile-size) * 15);
+  background-color: #FFBF42;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  -webkit-box-shadow: var(--webkit-box-shadow);
+}
+
+.pause-popup button:not(:first-child) {
+  margin-bottom: 2vh;
+}
+
+.pause-popup .svg-inline--fa {
+  margin-right: 0.8em;
+}
+
+.popup-button {
+  width: calc(var(--tile-size) * 10);
+  height: calc(var(--tile-size) * 1.5);
+  background-color: var(--color-8);
+
+  font-size: 1.2em;
+  font-family: 'Roboto Mono', monospace; 
+  font-weight: 500;
+
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-button:hover {
+  background-color: transparent;
+  border: 4px solid var(--color-8);
+}
+
+.pause-popup.hidden {
+  display: none;
+}
+
+/*- button active states -*/
+.control-button:active,
+.setting-button:active {
+  -webkit-box-shadow: none;
+  box-shadow: none; 
+}
+
+@media (max-width: 780px) {
+  
+  .Game {
+    max-width: 100%;
+    overflow-x: hidden;
+    --grid-height: 55vh;
+    --col-center: 1;
+    grid-template-areas: "h h h"
+                         "l c r"
+                         "l b r"
+                         ". b .";
+
+  }
+  .gameboard {
+    margin-top: -50px;
+  }
+  .settings {
+    display: flex;
+    grid-area: b;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    margin-top: 10vh;
+  }
+
+  .settings button:not(:first-child) {
+    margin-top: 0;
+  }
+
+  .score-board {
+    grid-area: h;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .level {
+    margin: 0 0 0 2vh;
+  }
+
+  .next-block-container {
+    display: none;
+  }
+
+}
+
+.ghost {
+  color: lightgray;
+}

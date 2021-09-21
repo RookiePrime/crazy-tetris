@@ -10,9 +10,18 @@ export const QUERY_ME = gql`
   }
 `;
 
+export const QUERY_TOPSCORES = gql`
+  query {
+    topscores {
+      username
+      highscore
+    }
+  }
+`;
+
 export const QUERY_HIGHSCORE = gql`
-  query highscores($username: String!) {
-    highscores(username: $username) {
+  query highscore($username: String!) {
+    highscore(username: $username) {
       _id
       username
       highscore
