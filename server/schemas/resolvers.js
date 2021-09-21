@@ -1,7 +1,6 @@
-const { User, Highscores } = require('../models');
+const { User, Highscore } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-const Highscore = require('../models/Highscores');
 
 const resolvers = {
     Query: {
@@ -15,9 +14,14 @@ const resolvers = {
       
         throw new AuthenticationError('Not logged in');
       },
-      highscores: async () => {
-        return Highscores.find().sort('-highscore').limit(5);
-      }
+      topscores: async () => {
+        return Highscore.find().sort('-highscore').limit(5);
+      },
+      highscores: async (parent, { username }) => {
+        const params = username ? { username } : {};
+        return Highscore.find(params)
+        .sort({ createdAt: -1 });
+      },
     },
 
     Mutation: {
@@ -42,10 +46,23 @@ const resolvers = {
         const token = signToken(user);
         return { token, user };
       },
-      addScore: async (parent, { highscore, username }) => {
-        const newScore = await Highscore.create({ highscore, username })
-        return newScore;
-      }
+      // addScore: async (parent, { highscore, username }) => {
+      //   const newScore = await Highscore.create({ highscore, username })
+      //   return newScore;
+      // }
+        addHighscore: async (parent, args, context) => {
+          if (context.user) {
+            const data = await Highscore.create({ ...args, username: context.user.username });
+            await User.findByIdAndUpdate(
+              { _id: context.user._id },
+              { $push: data.highscore },
+              { new: true }
+            );
+            return data;
+          }
+        
+          throw new AuthenticationError('You need to be logged in!');
+        }
     }
   };
   

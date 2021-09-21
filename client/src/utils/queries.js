@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
-export const GET_HIGHSCORES = gql`
+export const QUERY_TOPSCORES = gql`
     query {
-        highscores {
+        topscores {
             username
             highscore
         }

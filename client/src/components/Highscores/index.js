@@ -2,14 +2,15 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useQuery } from '@apollo/client';
-import { GET_HIGHSCORES } from '../../utils/queries';
+import { QUERY_TOPSCORES } from '../../utils/queries';
 
 const Highscores = () => {
-    const { loading, data } = useQuery(GET_HIGHSCORES);
-    const scoresList = data?.highscores || [];
+    const { loading, data } = useQuery(QUERY_TOPSCORES);
+    const scoresList = data?.topscores || [];
 
     const clickHandler = e => {
         console.log('X!');
+        console.log(scoresList);
     };
 
     return (
