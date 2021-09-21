@@ -297,6 +297,9 @@ export const keyboardPress = () => {
     const keyPressed = e.key;
 
     switch (keyPressed) {
+        case 'ArrowUp' :
+            document.querySelector('#rotate-btn').dispatchEvent(clickEvent);
+            break;
         case 'ArrowRight':
             document.querySelector('#right-btn').dispatchEvent(clickEvent);
             break;

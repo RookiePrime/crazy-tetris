@@ -87,7 +87,7 @@ h4 {
 .App {
   --col-side: calc(var(--tile-size) * 5);
   --col-center: calc(var(--tile-size) * 12);
-  --grid-height: calc(var(--tile-size) * 20);
+  /* --grid-height: calc(var(--tile-size) * 20); */
 
   width: calc(var(--tile-size) * 24);
   margin: 0 auto;

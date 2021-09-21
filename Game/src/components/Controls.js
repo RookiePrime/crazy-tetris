@@ -52,6 +52,7 @@ export default function Controls(props) {
 
             {/* Rotate */}
             <button 
+                id='rotate-btn'
                 className="control-button" 
                 disabled={!isRunning || gameOver}
                 onClick={(e) => {
