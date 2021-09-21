@@ -209,3 +209,20 @@ hr {
 }
 
 /* High Scores styling ends here */
+
+.hammer{
+  transform: rotate(45deg);
+  animation-name: hammer;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes hammer {
+  from { transform: rotate(45deg);}
+  to { transform: rotate(0deg);}
+}
+
+.construction{
+  border: black dashed 2px;
+  padding: 2rem
+}
