@@ -55,6 +55,10 @@ function Credit () {
         {
             name: "Mongoose ODM",
             link: "https://mongoosejs.com/"
+        },
+        {
+            name: "TailwindCSS",
+            link: "https://tailwindcss.com/"
         }
     ])
         
