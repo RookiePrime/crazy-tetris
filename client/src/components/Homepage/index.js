@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import Login from '../Login';
 import Credit from '../Credit';
 import Signup from '../Signup';
+import Highscores from '../Highscores';
 
 Modal.setAppElement('#root');
 
@@ -84,7 +85,8 @@ function Homepage( ) {
             
             currentAction === actions[0] ? <Login />
             : currentOption === options[1] ? <Credit />
-            :  <Signup />
+            :  currentOption === options[2] ? <Highscores />
+            : <Signup />
 }
 
         </Modal>
