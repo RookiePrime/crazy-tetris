@@ -3,6 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faInfoCircle, faTrophy, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
 import Login from '../Login';
+import Credit from '../Credit';
+import Signup from '../Signup';
+import Highscores from '../Highscores';
+import Settings from '../Settings';
 
 Modal.setAppElement('#root');
 
@@ -13,7 +17,25 @@ function Homepage( ) {
         { name: 'START GAME'}
       ])
 
+    const [options] = useState([
+        { 
+            name: 'btn-settings',
+            icon: faCog,
+            animate: 'hover:rotate-180'
+        },
+        { 
+            name: 'btn-about',
+            icon: faInfoCircle
+        },
+        { 
+            name: 'btn-score',
+            icon: faTrophy
+        }
+    ])
+
     const [modalIsOpen, setModalIsOpen]= useState(false);
+    const [currentAction, setCurrentAction] = useState(false)
+    const [currentOption, setCurrentOption] = useState(false)
 
     const menuBtnClass = "mx-2 opacity-100 bg-white-900 rounded-full shadow-md p-3";
     const hover = "transform transition duration-300 ease-in-out hover:scale-110";
@@ -29,8 +51,8 @@ function Homepage( ) {
         <section className="flex flex-col gap-4">
             {actions.map((action) => (
                 <button 
-                className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover} `}
-                onClick = { () => setModalIsOpen(true)}
+                className={`text-3xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover} `}
+                onClick = { () => {setModalIsOpen(true); setCurrentAction(action)}}
                 key={action.name}
                 >
                     { action.name }
@@ -38,9 +60,15 @@ function Homepage( ) {
             ))}
 
             <div className="flex flex-row gap-4 my-5">
-                <FontAwesomeIcon icon={faCog} className={`${menuBtnClass} ${hover} btn-settings hover:rotate-180 text-6xl`}/>
-                <FontAwesomeIcon icon={faInfoCircle} className={`${menuBtnClass} ${hover} btn-about text-6xl`}/>
-                <FontAwesomeIcon icon={faTrophy} className={`${menuBtnClass} ${hover} btn-score text-6xl`}/>
+                {options.map((option) => 
+                    <button>
+                        <FontAwesomeIcon 
+                    icon={option.icon}
+                    className={`${menuBtnClass} ${hover} ${option.name} ${option.animate} text-6xl`}
+                    onClick = { () => {setModalIsOpen(true); setCurrentOption(option)}}
+                    key={option.name}/>
+                    </button>
+                )}
             </div>
             
         </section>
@@ -48,13 +76,20 @@ function Homepage( ) {
         <Modal 
         isOpen={(modalIsOpen)}
         onRequestClose={() => setModalIsOpen(false)}
-        className="login-signup box-content h-2/5 w-2/5 container mx-auto my-56 p-10 rounded flex flex-col items-center justify-center gap-4 bg-yellow-400 relative"
+        className="modal-wrap box-content h-3/5 w-3/5 container mx-auto my-56 p-6 rounded flex flex-col items-center justify-center gap-6 bg-yellow-400 relative"
         >
             <a href='./' className="text-4xl">
                 <FontAwesomeIcon icon={faTimes} className={`text-4xl absolute top-3 right-10`}/>
             </a>
+
+            {
             
-            <Login />
+            currentAction === actions[0] ? <Login />
+            : currentOption === options[0] ? <Settings />
+            : currentOption === options[1] ? <Credit />
+            :  currentOption === options[2] ? <Highscores />
+            : <Signup />
+}
 
         </Modal>
 

@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useQuery } from '@apollo/client';
 import { QUERY_TOPSCORES } from '../../utils/queries';
 
@@ -8,19 +6,11 @@ const Highscores = () => {
     const { loading, data } = useQuery(QUERY_TOPSCORES);
     const scoresList = data?.topscores || [];
 
-    const clickHandler = e => {
-        console.log('X!');
-        console.log(scoresList);
-    };
-
     return (
         <div className='container mx-auto flex h-screen justify-center items-center'>
-            <div className='frame max-h-90 modal'>
-                <button className='absolute right-6 top-0 p-4' onClick={clickHandler}>
-                    <FontAwesomeIcon icon={faTimes}/>
-                </button>
+            <div className='modal'>
                 <div>
-                    <h3 className='text-center m-8 h3-headline'>HIGH SCORES</h3>
+                    <h3 className='text-center m-8 text-4xl'>HIGH SCORES</h3>
                 </div>
                 {loading ?
                     <h3>Loading...</h3> :

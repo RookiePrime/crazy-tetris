@@ -26,7 +26,7 @@ function Signup () {
                 type="text" 
                 value={username}
                 onChange={event => setUsername(event.target.value)}
-                className={`${inputField}`}
+                className={`${inputField} text-2xl`}
                 placeholder="Username"
             />
 
@@ -35,7 +35,7 @@ function Signup () {
                 type="text" 
                 value={email}
                 onChange={event => setEmail(event.target.value)}
-                className={`${inputField}`}
+                className={`${inputField} text-2xl`}
                 placeholder="Email"
             />
 
@@ -43,13 +43,13 @@ function Signup () {
             <input 
                 type="password"
                 size="50"
-                className={`${inputField}`} 
+                className={`${inputField} text-2xl`} 
                 onChange={event => setPassword(event.target.value)}
                 placeholder="Password"
             />
 
-            <button className={`text-xl rounded-md py-2 font-bold opacity-100 btn-action submit-btn ${hover}`}>SIGN UP</button>
-            <p>Already have an account?
+            <button className={`text-3xl rounded-md py-2 mt-10 font-bold opacity-100 btn-action submit-btn ${hover}`}>SIGN UP</button>
+            <p className="text-lg">Already have an account?
                 <a 
                 className="text-blue-400 font-bold" 
                 onClick = { () => setModalIsOpen(true)}
@@ -60,7 +60,7 @@ function Signup () {
         <Modal 
         isOpen={(modalIsOpen)}
         onRequestClose={() => setModalIsOpen(false)}
-        className="login-signup box-content h-2/5 w-2/5 container mx-auto my-56 p-10 rounded flex flex-col items-center justify-center gap-4 bg-yellow-400 relative"
+        className="login-signup box-content h-3/5 w-3/5 container mx-auto my-56 p-10 rounded flex flex-col items-center justify-center gap-4 bg-yellow-400 relative"
         >
             <a href='./' className="text-4xl">
                 <FontAwesomeIcon icon={faTimes} className={`text-4xl absolute top-3 right-10`}/>
