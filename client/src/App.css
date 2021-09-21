@@ -39,6 +39,7 @@ body {
   box-shadow: 10px 10px #E6E2E1;
 }
 
+/* Profile styling starts here */
 .frame {
   min-width: 80%;
   background-color: #FFBF42;
@@ -49,125 +50,75 @@ body {
   position: relative;
 }
 
-.wrapper {
-  margin: 0 auto;
-  max-width: 100%;
-  width: 900%;;
-}
-
-.input-wrapper {
-  position: relative;
-  top: 190%;
-  left: 100%;
-}
-
-.profile-input{
-  padding: 10% 10% 10% 150%;
-  width: 300%;
-  font-family: 'Roboto Mono', monospace;
-}
-
-.user-icon {
-  height: 80%;
-  position: absolute;
-  left: 59%;
-  top: calc(50% - 1.75em);
-  color: #52B3D1;
-}
-
+/* profile-logo */
 .profile-logo {
   box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
   0 2px 2px rgba(0,0,0,0.15), 
   0 4px 4px rgba(0,0,0,0.15), 
   0 8px 8px rgba(0,0,0,0.15);
-  position: absolute;
 }
 
+/* profile username input */
+.user-icon {
+  position: absolute;
+  left: 15%;
+  top: calc(50% - 0.65em);
+  color: #52B3D1;
+  width: 30%;
+}
+
+/* profile-font and background */
 .profile-font, table, .total-lines {
   font-family: 'Roboto Mono', 'monospace';
-}
-
-.profile-font {
-  left: 40%;
 }
 
 .profile-highscore, .total-lines, .trophies {
   outline: none;
   background-color: #FF971C;
   border-radius: 1em;
-  position: absolute;
+  box-shadow: 0px 5px rgba(77, 40, 40, 0.2);
 }
 
-.profile-highscore{
-  bottom: 5%;
-  left: 20%;
+/* profile table */
+td:nth-last-child {
+  padding-bottom: 10;
+  margin-bottom: 5%;
 }
 
-
-/* th:not([scope=row]) {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-} */
-
-/* tr:not(:last-child) {
-  border-bottom: 3px dashed #000;
-} */
-
-tr:nth-last-child {
-  padding-bottom: 2%;
+.col1 {
+  padding-left: 14%;
 }
 
 .col2 {
-  text-align: end;
-}
-
-td {
-  width: 80%;
-  height: 100;
-  padding: 5% 15% 0% 7%;
+  padding-left: 35%;
+  padding-right: 35%;  
 }
 
 hr {
   border: 2px dashed #000;
-  width: 140%;
-  margin: 10% 0 0 15%;
+  width: 250%;
+  margin: 10% 0 0 45%;
 }
 
-.total-lines {
-  top: 36%;
-  right: 20%;
-}
-
-.trophies {
-  bottom: 27%;
-  right: 20%;
-  width: 31%;
-}
-
+/* total lines score board */
 .trophy-logo {
   color: #E6E2E1;
-  padding-right: 2%;
-  font-size: 1.5rem;
+  padding-right: 1%;
+  font-size: 2rem;
 }
 
 .btn-start-game {
   background-color: #52B3D1;
+  box-shadow: 0px 5px rgba(77, 40, 40, 0.2);
   color: #000;
-  width: 30%;
-  position: absolute;
-  bottom: 16%;
-  right: 20%;
 }
 
 .btn-sign-out {
   background-color: #E6E2E1;
-  width: 30%;
-  position: absolute;
-  bottom: 6%;
-  right: 20%;
+  box-shadow: 0px 5px rgba(77, 40, 40, 0.2);
 }
+/* Profile Styles ends here */
+
 
 /* High Scores Styling begins here */
 
@@ -191,3 +142,30 @@ hr {
 }
 
 /* High Scores styling ends here */
+
+/* media queries of profile page */
+@media screen and (max-width: 600px){
+
+  body {
+    background-color: #FFBF42;
+    opacity: 1;
+    background-image:  linear-gradient(#d1d1d3 1px, transparent 1px), linear-gradient(to right, #d1d1d3 1px, #FFBF42 1px);
+    background-size: 6rem 6rem;
+  }
+
+  .frame {
+    background-color: transparent;
+    box-shadow: none;
+    height: 100%;
+  }
+
+  .col2 {
+    padding-left: 15%;
+  }
+
+  .profile-right{
+    display: block;
+    width: 100%;
+    margin: 3% 0;
+  }
+}

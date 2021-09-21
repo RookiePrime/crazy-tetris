@@ -28,11 +28,11 @@ const client = new ApolloClient({
 function App() {
   return (
     <>
-      <ApolloProvider client={client}>
-        <Homepage />
+      {/* <ApolloProvider client={client}>
+        <Homepage /> */}
         <Profile />
-        <Highscores />
-      </ApolloProvider>
+        {/* <Highscores />
+      </ApolloProvider> */}
     </>
   );
 }
