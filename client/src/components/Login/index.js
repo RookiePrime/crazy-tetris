@@ -15,7 +15,7 @@ function Login () {
     const hover = "transform transition duration-300 ease-in-out hover:scale-110";
 
     return (
-        <section className="flex flex-col items-center text-center justify-center gap-4">
+        <section className="flex flex-col items-center text-center justify-center gap-6">
             <h1 className="text-4xl font-normal mb-5">LOGIN</h1>
 
             <form className="flex flex-col gap-6">
@@ -25,7 +25,7 @@ function Login () {
                     type="text" 
                     value={username}
                     onChange={event => setUsername(event.target.value)}
-                    className={`${inputField}`}
+                    className={`${inputField} text-2xl`}
                     placeholder="Username"
                 />
 
@@ -34,15 +34,16 @@ function Login () {
                 <input 
                     type="password"
                     size="50"
-                    className={`${inputField}`} 
+                    className={`${inputField} text-2xl`} 
                     onChange={event => setPassword(event.target.value)}
                     placeholder="Password"
                 />
 
-                <a href="./" className="hover:text-red-600">Forgot your password?</a>
+                <a href="./" className="hover:text-red-600 mb-10 text-left text-lg">Forgot your password?</a>
 
-                <button className={`text-xl rounded-md py-2 font-bold opacity-100 btn-action submit-btn ${hover}`}>LOGIN</button>
-                <p>Don't have an account?
+
+                <button className={`text-3xl rounded-md py-2 mt-10 font-bold opacity-100 btn-action submit-btn ${hover}`}>LOGIN</button>
+                <p className="text-lg">Don't have an account?
                     <a 
                     className="text-blue-400 font-bold" 
                     onClick = { () => setModalIsOpen(true)}
@@ -53,7 +54,7 @@ function Login () {
             <Modal 
             isOpen={(modalIsOpen)}
             onRequestClose={() => setModalIsOpen(false)}
-            className="login-signup box-content h-2/5 w-2/5 container mx-auto my-56 p-10 rounded flex flex-col items-center justify-center gap-4 bg-yellow-400 relative"
+            className="login-signup box-content h-3/5 w-3/5 container mx-auto my-56 p-10 rounded flex flex-col items-center justify-center gap-4 bg-yellow-400 relative"
             >
                 <a href='./' className="text-4xl">
                     <FontAwesomeIcon icon={faTimes} className={`text-4xl absolute top-3 right-10`}/>
