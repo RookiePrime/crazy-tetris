@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faTrophy, faMedal } from '@fortawesome/free-solid-svg-icons'
 
 function Profile() {
+
+    const [username, setUsername] = useState({ name: ''});
+    const { name } = username;
+
+    function handleChange(e) {
+        setUsername({username, name: e.target.value })
+    }
+      
+    console.log(username);
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(username);
+    }
+
     return(
     <div className="container mx-auto flex h-screen items-center justify-center">
         <div className="frame flex">
@@ -15,9 +30,15 @@ function Profile() {
             <section>
                 <div className="flex">
                     <div className="">
-                        <div class="input-wrapper wrapper">
-                            <label htmlFor="username" icon={faUser}><FontAwesomeIcon class="user-icon" icon={faUser}/> </label>
-                            <input type="text" htmlFor="username" id="username" class="rounded-2xl text-black-500 profile-input" placeholder="newuser432"/>
+                        <div className="input-wrapper wrapper">
+                            <form id="contact-form" onSubmit={handleSubmit}>
+                                <label htmlFor="username" icon={faUser}><FontAwesomeIcon className="user-icon" icon={faUser}/> </label>
+                                <input type="text" defaultValue={username.name}  
+                                onChange={handleChange} name="name" 
+                                htmlFor="username" id="username" 
+                                className="rounded-2xl text-black-500 profile-input" 
+                                placeholder="newuser432"/>
+                            </form>
                         </div>
                     </div>
                 </div>
