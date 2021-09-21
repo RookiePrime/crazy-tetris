@@ -53,13 +53,7 @@ Contributions, issues and feature requests are welcome. Feel free to check issue
 
 Created By:
  * [Kirti Patel]( https://github.com/kirti18patel)
- * [Kiefer Levine]( )
- * [Lisa Le]( )
+ * [Kiefer Levine]( https://github.com/rookieprime )
+ * [Lisa Le]( https://github.com/lisahuele )
  * [Sonali Pandey]( )
- * [Rizzel ]( )
-
-
-
-
-
-
+ * [Rizzel ]( https://github.com/rizznn/ )
