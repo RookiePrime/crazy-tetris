@@ -8,19 +8,34 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+
+  type Highscore {
+    highscore: Int!
+    username: String!
+  }
+
   type User {
     _id: ID
     username: String
     email: String
   }
 
+  type HighscoreAdd {
+    _id: ID
+    highscore: String
+  }
+
   type Query {
     me: User
+    topscores: [Highscore]
+    highscores(username: String!): [Highscore]
   }
-  
+
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addScore(username: String!, highscore: Int!): Highscore
+    addHighscore(highscore: String!): HighscoreAdd
   }
 `;
 
