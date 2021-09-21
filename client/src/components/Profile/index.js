@@ -10,8 +10,6 @@ function Profile() {
     function handleChange(e) {
         setUsername({username, name: e.target.value })
     }
-      
-    console.log(username);
 
     function handleSubmit(e) {
         e.preventDefault();
