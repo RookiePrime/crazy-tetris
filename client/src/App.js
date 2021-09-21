@@ -31,7 +31,6 @@ function App() {
       <ApolloProvider client={client}>
         <Homepage />
         <Profile />
-        <Highscores />
       </ApolloProvider>
     </>
   );
