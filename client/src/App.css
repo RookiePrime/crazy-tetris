@@ -3,6 +3,11 @@ body {
   opacity: 1;
   background-image:  linear-gradient(#d1d1d3 1px, transparent 1px), linear-gradient(to right, #d1d1d3 1px, #ffffff 1px);
   background-size: 6rem 6rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
+a {
+  cursor: pointer;
 }
 
 .btn-action {
@@ -35,7 +40,7 @@ body {
   color: white;
 }
 
-.login-signup {
+.modal-wrap{
   box-shadow: 10px 10px #E6E2E1;
 }
 
@@ -167,4 +172,17 @@ hr {
   position: absolute;
   bottom: 6%;
   right: 20%;
+}
+
+.creator-list{
+  border-bottom: 3px dashed black;
+}
+
+.creator-list:hover{
+  color: red;
+  border-bottom: 3px dashed red;
+}
+
+.tech-list {
+  background-color: white;
 }
