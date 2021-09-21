@@ -33,7 +33,6 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
-<<<<<<< HEAD
         <Router>
           <Switch>
             <Route exact path='/' component={Homepage} />
@@ -43,11 +42,6 @@ function App() {
             <Route component={NoMatch} />
           </Switch>
         </Router>
-=======
-        <Homepage />
-        <Profile />
-        <Highscores />
->>>>>>> d7c50a8605d7789dabccb1a83a242ad43c7349ec
       </ApolloProvider>
     </>
   );
