@@ -2,6 +2,7 @@ import {
     MOVE_RIGHT, 
     MOVE_LEFT,
     MOVE_DOWN,
+    // HARD_DROP,
     ROTATE,
     PAUSE,
     RESUME,
@@ -55,7 +56,7 @@ const gameReducer = (state = defaultState(), action) => {
                 return { ...state, y: maybeY }
             }
             
-            // If not place the block
+            // If not, place the block
             // (this returns an object with a grid and gameover bool)
             const obj = addBlockToGrid(shape, grid, x, y, rotation)
             const newGrid = obj.grid
@@ -83,9 +84,15 @@ const gameReducer = (state = defaultState(), action) => {
             newState.level = level + levelUp(newState.score);
             newState.speed = speed - speedIncrease(newState.level);
 
-            
             return newState
-  
+
+        // case HARD_DROP:
+        //     if(canMoveTo(shape, grid, x, y, rotation)) {
+        //         return { ...state, x: x + 1 };
+        //     }
+        //     return state
+            
+
         case RESUME:
             
             return { ...state, isRunning: true }
