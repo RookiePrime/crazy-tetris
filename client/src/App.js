@@ -1,10 +1,13 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import Homepage from './components/Homepage';
+import Homepage from './pages/Homepage';
 import Profile from './components/Profile';
 import Highscores from './components/Highscores';
+import Game from './pages/Game';
+import NoMatch from './pages/NoMatch';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -26,12 +29,19 @@ const client = new ApolloClient({
 });
 
 function App() {
+
   return (
     <>
       <ApolloProvider client={client}>
-        <Homepage />
-        <Profile />
-        <Highscores />
+        <Router>
+          <Switch>
+            <Route exact path='/' component={Homepage} />
+            <Route exact path='/profile' component={Profile} />
+            <Route exact path='/game' component={Game} />
+            <Route exact path='/highscores' component={Highscores} />
+            <Route component={NoMatch} />
+          </Switch>
+        </Router>
       </ApolloProvider>
     </>
   );

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faInfoCircle, faTrophy, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
-import Login from '../Login';
-import Credit from '../Credit';
-import Signup from '../Signup';
-import Highscores from '../Highscores';
-import Settings from '../Settings';
+import Login from '../../components/Login';
+import Credit from '../../components/Credit';
+import Signup from '../../components/Signup';
+import Highscores from '../../components/Highscores';
+import Settings from '../../components/Settings';
 
 Modal.setAppElement('#root');
 
@@ -49,15 +50,15 @@ function Homepage( ) {
         </header>
 
         <section className="flex flex-col gap-4">
-            {actions.map((action) => (
-                <button 
-                className={`text-3xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover} `}
-                onClick = { () => {setModalIsOpen(true); setCurrentAction(action)}}
-                key={action.name}
-                >
-                    { action.name }
-                </button>
-            ))}
+            <button
+                className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover}`}
+                onClick = { () => setModalIsOpen(true) }
+            > LOGIN </button>
+            <Link to={'/game'}>
+                <button
+                    className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover}`}
+                > START GAME </button>
+            </Link>
 
             <div className="flex flex-row gap-4 my-5">
                 {options.map((option) => 

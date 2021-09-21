@@ -34,9 +34,11 @@ export const shapes = [
      [0,1,0,0]]],
 
   // T
-  [[[0,0,2,0],
-    [0,2,2,0],
-    [0,0,2,0],
+  [
+
+    [[0,2,0,0],
+    [2,2,0,0],
+    [0,2,0,0],
     [0,0,0,0]],
 
     [[0,0,0,0],
@@ -45,14 +47,16 @@ export const shapes = [
      [0,0,0,0]],
 
     [[0,2,0,0],
-     [2,2,2,0],
-     [0,0,0,0],
+     [0,2,2,0],
+     [0,2,0,0],
      [0,0,0,0]],
 
     [[0,2,0,0],
-     [0,2,2,0],
-     [0,2,0,0],
-     [0,0,0,0]]],
+     [2,2,2,0],
+     [0,0,0,0],
+     [0,0,0,0]]
+  
+  ],
 
   // L
   [[[0,3,0,0],
@@ -60,40 +64,40 @@ export const shapes = [
     [0,3,3,0],
     [0,0,0,0]],
 
-    [[3,3,3,0],
-     [3,0,0,0],
-     [0,0,0,0],
-     [0,0,0,0]],
-
     [[0,0,3,0],
      [3,3,3,0],
      [0,0,0,0],
      [0,0,0,0]],
 
-    [[0,3,3,0],
-     [0,0,3,0],
-     [0,0,3,0],
+    [[3,3,0,0],
+     [0,3,0,0],
+     [0,3,0,0],
+     [0,0,0,0]],
+
+    [[0,0,0,0],
+     [3,3,3,0],
+     [3,0,0,0],
      [0,0,0,0]]],
 
   // J
-  [[[0,4,4,0],
-    [0,0,4,0],
-    [0,0,4,0],
+  [[[0,4,0,0],
+    [0,4,0,0],
+    [4,4,0,0],
     [0,0,0,0]],
-
-    [[4,0,0,0],
-     [4,4,4,0],
-     [0,0,0,0],
-     [0,0,0,0]],
 
     [[0,0,0,0],
      [4,4,4,0],
      [0,0,4,0],
      [0,0,0,0]],
 
-    [[0,4,0,0],
+    [[0,4,4,0],
      [0,4,0,0],
-     [4,4,0,0],
+     [0,4,0,0],
+     [0,0,0,0]],
+
+    [[4,0,0,0],
+     [4,4,4,0],
+     [0,0,0,0],
      [0,0,0,0]]],
 
   // Z
@@ -128,6 +132,12 @@ export const shapes = [
     [[[0,0,8,0],
       [0,8,8,8],
       [0,0,8,0],
+      [0,0,0,0]]],
+    
+  // DUMB SHAPE
+    [[[0,0,0,0],
+      [0,0,9,0],
+      [0,0,0,0],
       [0,0,0,0]]],
 ]
 
@@ -284,33 +294,3 @@ export const speedIncrease = (currentLevel) => {
   }
   return speedInc;
 }
-
-export const keyboardPress = () => {
-  // A fake click! It's a real click, but performed by us, not the user.
-  const clickEvent = new MouseEvent('click', {
-    "view": window,
-    "bubbles": true,
-    "cancelable": false
-  });
-  // The meat of the matter. The document itself listens for keyboard presses. It performs a switch-case based on which key is pressed; if the key that's pressed isn't one of the cases, then it doesn't do anything.
-  document.addEventListener('keydown', e => {
-    const keyPressed = e.key;
-
-    switch (keyPressed) {
-        case 'ArrowUp' :
-            document.querySelector('#rotate-btn').dispatchEvent(clickEvent);
-            break;
-        case 'ArrowRight':
-            document.querySelector('#right-btn').dispatchEvent(clickEvent);
-            break;
-        case 'ArrowLeft':
-            document.querySelector('#left-btn').dispatchEvent(clickEvent);
-            break;
-        case 'ArrowDown':
-            document.querySelector('#down-btn').dispatchEvent(clickEvent);
-            break;
-        default :
-            break;
-    };
-  });
-};
