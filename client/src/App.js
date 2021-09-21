@@ -5,6 +5,7 @@ import { setContext } from '@apollo/client/link/context';
 import Homepage from './components/Homepage';
 import Profile from './components/Profile';
 import Highscores from './components/Highscores';
+import Game from './pages/Game';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -29,6 +30,7 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
+        <Game />
         <Homepage />
         <Profile />
         <Highscores />
