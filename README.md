@@ -56,4 +56,4 @@ Created By:
  * [Kiefer Levine]( https://github.com/rookieprime )
  * [Lisa Le]( https://github.com/lisahuele )
  * [Sonali Pandey]( )
- * [Rizzel ]( https://github.com/rizznn/ )
+ * [Rizzel Nolasco]( https://github.com/rizznn/ )
