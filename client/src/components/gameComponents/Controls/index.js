@@ -24,7 +24,6 @@ export default function Controls(props) {
             // The meat of the matter. The document itself listens for keyboard presses. It performs a switch-case based on which key is pressed; if the key that's pressed isn't one of the cases, then it doesn't do anything.
 
             const keyPressed = e.key;
-            console.log(keyPressed)
             switch (keyPressed) {
                 case 'ArrowUp' :
                     document.querySelector('#rotate-btn').dispatchEvent(clickEvent);
