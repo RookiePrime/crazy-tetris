@@ -32,7 +32,7 @@ function App() {
 
   return (
     <>
-      {/* <ApolloProvider client={client}>
+      <ApolloProvider client={client}>
         <Router>
           <Switch>
             <Route exact path='/' component={Homepage} />
@@ -42,8 +42,7 @@ function App() {
             <Route component={NoMatch} />
           </Switch>
         </Router>
-      </ApolloProvider> */}
-      <Profile />
+      </ApolloProvider>
     </>
   );
 }
