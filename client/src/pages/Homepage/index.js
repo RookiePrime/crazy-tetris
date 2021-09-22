@@ -52,7 +52,7 @@ function Homepage( ) {
         <section className="flex flex-col gap-4">
             <button
                 className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover}`}
-                onClick = { () => setModalIsOpen(true) }
+                onClick = { () => {setModalIsOpen(true); setCurrentAction(actions[0])}}
             > LOGIN </button>
             <Link to={'/game'}>
                 <button
@@ -77,20 +77,16 @@ function Homepage( ) {
         <Modal 
         isOpen={(modalIsOpen)}
         onRequestClose={() => setModalIsOpen(false)}
-        className="modal-wrap box-content h-3/5 w-3/5 container mx-auto my-56 p-6 rounded flex flex-col items-center justify-center gap-6 bg-yellow-400 relative"
+        // style={customStyles}
+        className="box-content h-screen container mx-auto flex flex-col items-center justify-center gap-6"
         >
-            <a href='./' className="text-4xl">
-                <FontAwesomeIcon icon={faTimes} className={`text-4xl absolute top-3 right-10`}/>
-            </a>
-
             {
-            
             currentAction === actions[0] ? <Login />
             : currentOption === options[0] ? <Settings />
             : currentOption === options[1] ? <Credit />
             :  currentOption === options[2] ? <Highscores />
             : <Signup />
-}
+            }
 
         </Modal>
 
