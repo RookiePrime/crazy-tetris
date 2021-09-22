@@ -23,6 +23,7 @@ function Login () {
             const mutationResponse = await login({
                 variables: { username: formState.username, password: formState.password },
             });
+            console.log("2");
             const token = mutationResponse.data.login.token;
             Auth.login(token);
             alert("logged in");   
@@ -32,6 +33,7 @@ function Login () {
     };
 
     const handleChange = (event) => {
+        
       const { name, value } = event.target;
       setFormState({
         ...formState,
@@ -48,7 +50,7 @@ function Login () {
                 <label className="hidden">Username</label>
                 <input 
                     type="text" 
-                    value={formState.username}
+                    name="username"
                     onChange={handleChange}
                     className={`${inputField} text-2xl`}
                     placeholder="Username"
@@ -56,6 +58,7 @@ function Login () {
 
                 <label className="hidden">Password</label>
                 <input 
+                    name="password"
                     type="password"
                     size="50"
                     className={`${inputField} text-2xl`} 

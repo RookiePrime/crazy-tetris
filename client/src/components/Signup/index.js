@@ -19,7 +19,6 @@ function Signup (props) {
 
     const handleFormSubmit = async (event) => {
       event.preventDefault();
-      // console.log(formState.username);
       const mutationResponse = await addUser({
         variables: {
           username: formState.username,
@@ -29,12 +28,10 @@ function Signup (props) {
       });
       const token = mutationResponse.data.addUser.token;
       Auth.login(token);
-      alert("logged in");
     };
   
     const handleChange = (event) => {
       const { name, value } = event.target;
-      // console.log(event.target.name);
       setFormState({
         ...formState,
         [name]: value,
