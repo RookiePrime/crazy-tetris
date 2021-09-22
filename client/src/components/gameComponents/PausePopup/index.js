@@ -21,11 +21,13 @@ export default function PausePopup(props) {
     isHidden = '';
   }
 
-  return (
-    <div className={`pause-popup ${isHidden}`}>
-      <h1> {message} </h1>
+  const hover = "transform transition duration-300 ease-in-out hover:scale-110";
 
-      <button className="popup-button" onClick={(e) => {
+  return (
+    <div className={`pause-popup ${isHidden} modal-wrap rounded flex flex-col items-center text-center justify-center gap-6 md:p-20 p-6 bg-yellow-400 relative`}>
+      <h1 className="text-4xl font-normal mb-5 gameH1"> {message} </h1>
+
+      <button className={`popup-button btn-action ${hover}`} onClick={(e) => {
         if(gameOver) { dispatch(restart()) }
         if(!isRunning) { dispatch(resume()) }
       }}>
@@ -33,14 +35,14 @@ export default function PausePopup(props) {
       </button>
 
       <Link to='/'>
-        <button className="popup-button" onClick={(e) => {
+        <button className={`popup-button btn-action ${hover}`} onClick={(e) => {
           dispatch(restart());
           // if(gameOver) { <Highscore/> }
           // if(!isRunning)
         }}>{ gameOver ? 'SAVE HIGHSCORE' : 'QUIT GAME' }</button>
       </Link>
 
-      <p>
+      <p className="gameP">
         <FontAwesomeIcon icon={faUser} />
         USER
       </p>

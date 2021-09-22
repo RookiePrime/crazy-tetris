@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 
 :root {
   --bg-color: rgba(150, 150, 150, 1);
@@ -10,16 +11,17 @@
 
 
   /* Square Colors */
-  --color-0: #F3F3F3;
-  --color-1: #FF971C;
-  --color-2: #FFD500;
-  --color-3: #0341AE;
-  --color-4: #E678E6;
-  --color-5: #72CB3B;
-  --color-6: #55DDE0;
-  --color-7: #FF3213;
-  --color-8: #52B3D1;
-  --color-9: #5C443C;
+  --color-0:  #F3F3F3;
+  --color-1:  #FF971C;
+  --color-2:  #FFD500;
+  --color-3:  #0341AE;
+  --color-4:  #E678E6;
+  --color-5:  #72CB3B;
+  --color-6:  #55DDE0;
+  --color-7:  #FF3213;
+  --color-8:  #52B3D1;
+  --color-9:  #800080;
+  --color-10: #FF8058;
 
   /* Numbers define values that will be used throughout the CSS.*/
   --cols: 10;
@@ -32,10 +34,27 @@
   box-sizing: border-box;
 }
 
-h3,
+.gameH1 {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0;
+}
+
+.game-p {
+  font-size: 1em;
+}
+
+.game-h3,
 h4 {
   font-size: 1.2em;
   margin: 0;
+}
+
+.game-h5 {
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: 2em;
+  margin: 0;
+  padding: 0;
 }
 
 /* Colors */
@@ -209,7 +228,7 @@ and 'b'. The '.' represents an empty cell on the grid. */
   padding: 1em;
   background-color: var(--color-0);
   border: none;
-  border-radius: 20px;
+  border-radius: 100%;
   width: fit-content;
   height: fit-content;
   -webkit-box-shadow: var(--webkit-box-shadow);
@@ -254,6 +273,7 @@ and 'b'. The '.' represents an empty cell on the grid. */
   top: 44%;
   transform: translate(-50%, -50%);
   width: calc(var(--tile-size) * 15);
+  padding: 3vh 0;
   background-color: #FFBF42;
   border-radius: 20px;
   box-shadow: var(--box-shadow);
@@ -261,10 +281,15 @@ and 'b'. The '.' represents an empty cell on the grid. */
 }
 
 .pause-popup button:not(:first-child) {
-  margin-bottom: 2vh;
+  margin: 2vh 0;
 }
 
-.pause-popup .svg-inline--fa {
+.pause-popup p {
+  margin-top: 2vh;
+}
+
+.pause-popup .svg-inline--fa,
+.game-user .svg-inline--fa {
   margin-right: 0.8em;
 }
 
@@ -282,9 +307,15 @@ and 'b'. The '.' represents an empty cell on the grid. */
   cursor: pointer;
 }
 
-.popup-button:hover {
+/* .popup-button:hover {
+  background-color: white;
+  border: 4px solid var(--color-8);
+} */
+
+.game-userinfo:hover {
   background-color: transparent;
   border: 4px solid var(--color-8);
+  font-weight: 700;
 }
 
 .pause-popup.hidden {
@@ -296,6 +327,54 @@ and 'b'. The '.' represents an empty cell on the grid. */
 .setting-button:active {
   -webkit-box-shadow: none;
   box-shadow: none; 
+}
+
+/*------ Navigation --------*/
+.game-navigation {
+  display: flex;
+  margin: 3vh 0 0 -50vh;
+  text-align: start;
+  align-items: center;
+}
+
+.game-logo {
+  width: 7vh;
+  min-width: 30px;
+}
+
+.game-user {
+  margin-left: 2vh;
+}
+
+.game-user h3 {
+  margin-left: 0.3vh;
+  margin-bottom: 0.2vh;
+}
+
+.game-userinfo {
+  background-color: var(--color-8);
+  padding: 5px 2vh;
+  border-radius: 10px;
+}
+
+.t { color: var(--color-7) }
+.e { color: var(--color-1) }
+.r { color: var(--color-3) }
+.o { color: var(--color-5) }
+.n { color: var(--color-2) }
+.i { color: var(--color-9) }
+.m { color: var(--color-6) }
+
+.t:hover { color: var(--color-9) }
+.e:hover { color: var(--color-2) }
+.r:hover { color: var(--color-4) }
+.o:hover { color: var(--color-10)}
+.n:hover { color: var(--color-8) }
+.i:hover { color: var(--color-1) }
+.m:hover { color: var(--color-7) }
+
+.ghost {
+  color: var(--border-color)
 }
 
 @media (max-width: 780px) {
@@ -342,8 +421,4 @@ and 'b'. The '.' represents an empty cell on the grid. */
     display: none;
   }
 
-}
-
-.ghost {
-  color: lightgray;
 }
