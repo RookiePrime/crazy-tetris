@@ -11,6 +11,8 @@ function Profile() {
     const { loading, data } = useQuery(QUERY_TOPSCORES);
     const scoresList = data?.topscores || [];
     loading? console.log("loading") : console.log(scoresList);
+    const filterList = scoresList.filter(score => score.username === Auth.getProfile().data.username )
+    console.log(filterList);
     return(
     <div className="container mx-auto flex w-full h-screen items-center justify-center">
         <div className="frame">
@@ -46,8 +48,8 @@ function Profile() {
                                 </thead>
                                 <tbody className="p-12">
                                     {loading ?
-                                        <h3>Loading...</h3> : scoresList.length > 0?
-                                        scoresList.map((score, i) => (
+                                        <h3>Loading...</h3> : filterList.length > 0?
+                                        filterList.map((score, i) => (
                                         <>
                                         <tr>
                                             <td className="col1">0{i+1}</td>
