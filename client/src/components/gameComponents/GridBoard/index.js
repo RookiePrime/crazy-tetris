@@ -22,7 +22,7 @@ export default function GridBoard(props) {
             return;
         }
         if (!lastUpdateTimeRef.current) {
-            lastUpdateTimeRef.current = speed;
+            lastUpdateTimeRef.current = time;
         }
 
         const updatedTime = time - lastUpdateTimeRef.current
@@ -38,7 +38,7 @@ export default function GridBoard(props) {
     useEffect(() => {
         requestRef.current = requestAnimationFrame(update);
         return () => cancelAnimationFrame(requestRef.current)
-    }, [isRunning]);
+    }, [isRunning, speed]);
 
     //map rows
     const gridSquares = grid.map((rowArray, row) => {
@@ -62,8 +62,8 @@ export default function GridBoard(props) {
     });
 
     return (
-            <div className='grid-board'>
-                {gridSquares}
-            </div>
+        <div className='grid-board'>
+            {gridSquares}
+        </div>
     )
 }
