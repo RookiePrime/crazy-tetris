@@ -51,7 +51,7 @@ a {
   outline: none;
   box-shadow: 10px 10px rgba(77, 40, 40, 0.5);
   border-radius: 1em;
-  height: 80%;
+  min-height: 80%;
   position: relative;
 }
 
@@ -67,7 +67,7 @@ a {
 .user-icon {
   position: absolute;
   left: 15%;
-  top: calc(50% - 0.65em);
+  top: calc(50% - 0.5em);
   color: #52B3D1;
   width: 30%;
 }
@@ -198,7 +198,7 @@ hr {
   }
 
   .col2 {
-    padding-left: 15%;
+    /* padding-left: 15%; */
   }
 
   .profile-right{

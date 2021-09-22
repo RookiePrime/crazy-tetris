@@ -38,9 +38,9 @@ function Profile() {
                 </div>
             </section>
             <section className="profile-body w-2/3 mx-auto flex flex-wrap">    
-                <div className="w-full flex flex-wrap">
-                    <div className="w-1/2 h-full flex flex-grow flex-wrap ">
-                        <table className="text-2xl table-auto w-full h-full  px-10 mt-4 mb-4 profile-highscore">
+                <div className="max-w-full max-h-full flex flex-wrap">
+                    <div className="w-1/2 max-h-full flex flex-grow flex-wrap ">
+                        <table className="text-2xl table-auto w-full max-h-full px-10 mt-4 mb-4 profile-highscore">
                             <thead className="text-center" >
                                 <tr>
                                     <th className="p-5 pb-4" colspan="5" scope="colgroup">
@@ -84,7 +84,7 @@ function Profile() {
                                     <h2 className="text-7xl">0</h2>
                                     <h4 className="text-2xl">Lines Cleared</h4>
                                 </div>
-                            <div className="trophies w-full px-5 py-4 h-1/5 mb-4">
+                            <div className="trophies w-full px-5 py-4 h-1/5 mb-3">
                                 <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
                                 <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
                                 <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
@@ -97,7 +97,7 @@ function Profile() {
                                 <FontAwesomeIcon icon={faMedal} className="trophy-logo"/>
                                 
                             </div>
-                            <div className="w-full mb-4">
+                            <div className="w-full mb-3">
                                 <button type="button" className="btn-start-game w-full  text-center text-2xl rounded-md   w-full px-2 py-2  font-bold opacity-100 hover">START GAME</button>
                             </div>
                             <div className=" w-full">
