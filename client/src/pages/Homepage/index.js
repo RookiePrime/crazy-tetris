@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faInfoCircle, faTrophy, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faInfoCircle, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
 import Login from '../../components/Login';
 import Credit from '../../components/Credit';
@@ -77,7 +77,6 @@ function Homepage( ) {
         <Modal 
         isOpen={(modalIsOpen)}
         onRequestClose={() => setModalIsOpen(false)}
-        // style={customStyles}
         className="box-content h-screen container mx-auto flex flex-col items-center justify-center gap-6"
         >
             {
