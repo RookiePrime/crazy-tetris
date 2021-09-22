@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faTrophy, faMedal } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faTrophy, faMedal } from '@fortawesome/free-solid-svg-icons';
+import Auth from '../../utils/auth';
 
 function Profile() {
 
@@ -102,7 +103,8 @@ function Profile() {
                                     <button type="button" className="btn-start-game w-full  text-center text-2xl rounded-md   w-full px-2 py-2  font-bold opacity-100 hover">START GAME</button>
                                 </div>
                                 <div className=" w-full">
-                                    <button type="button" className="btn-sign-out w-full text-2xl rounded-md px-2 py-2 font-bold opacity-100 hover">SIGN OUT</button>
+                                    <button type="button" className="btn-sign-out w-full text-2xl rounded-md px-2 py-2 font-bold opacity-100 hover"
+                                    onClick= {Auth.logout} >SIGN OUT</button>
                                 </div>
                                 </div>
                             </div> 
