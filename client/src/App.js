@@ -1,8 +1,10 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import Auth from './utils/auth';
 import Homepage from './pages/Homepage';
 import Profile from './components/Profile';
 import Highscores from './components/Highscores';
@@ -29,13 +31,18 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const loggedIn = (Auth.loggedIn());
 
   return (
     <>
       <ApolloProvider client={client}>
         <Router>
           <Switch>
-            <Route exact path='/' component={Homepage} />
+            
+            <Route exact path='/'> 
+              {loggedIn ? <Redirect to ="/profile" /> : <Homepage />}
+            </Route>
+            {/* <Route exact path='/' component={Homepage} /> */}
             <Route exact path='/profile' component={Profile} />
             <Route exact path='/game' component={Game} />
             <Route exact path='/highscores' component={Highscores} />
