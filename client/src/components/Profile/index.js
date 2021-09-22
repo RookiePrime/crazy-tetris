@@ -19,96 +19,94 @@ function Profile() {
     return(
     <div className="container mx-auto flex w-full h-screen items-center justify-center">
         <div className="frame">
-            <header className="h-32 p-16 pl-10 relative">
+            <header className="h-24 p-8 pl-10 relative">
                     <img src={require(`../../assets/images/Logo.png`).default } className="h-12 float-left rounded-br-3xl  profile-logo" alt="crazy teronimo logo"/>
-                    <h1 className="flex flex-wrap justify-center text-5xl pb-8 profile-font">PROFILE</h1>
+                    <h1 className="flex flex-wrap justify-center text-5xl profile-font">PROFILE</h1>
             </header>
-            <section className="w-2/3 mx-auto flex mt-4 pt-2">
-                {/* <div className="profile-body w-4/5"> */}
-                    <div className="w-full">
-                        <div className="input-wrapper relative pb-4">
-                            <form id="contact-form" onSubmit={handleSubmit}>
-                                <label htmlFor="username" icon={faUser}><FontAwesomeIcon className="user-icon fa-3x" icon={faUser}/> </label>
-                                <input type="text" defaultValue={username.name}  
-                                onChange={handleChange} name="name" 
-                                htmlFor="username" id="username" 
-                                className="rounded-2xl text-black-500 w-full p-6 text-center  profile-input" 
-                                placeholder="newuser432"/>
-                            </form>
-                        </div>
+            <section className="w-2/3 mx-auto flex">
+                <div className="w-full">
+                    <div className="input-wrapper relative pb-1 pt-1">
+                        <form id="contact-form" onSubmit={handleSubmit}>
+                            <label htmlFor="username" icon={faUser}><FontAwesomeIcon className="user-icon fa-3x" icon={faUser}/> </label>
+                            <input type="text" defaultValue={username.name}  
+                            onChange={handleChange} name="name" 
+                            htmlFor="username" id="username" 
+                            className="rounded-2xl text-black-500 w-full p-6 text-center  profile-input" 
+                            placeholder="newuser432"/>
+                        </form>
                     </div>
-                </section>
-                <section className="profile-body w-2/3 mx-auto flex flex-wrap">    
-                    <div className="w-full flex flex-wrap">
-                        <div className="w-1/2 h-full flex flex-grow flex-wrap ">
-                            <table className="text-2xl table-auto w-full h-full  px-10 mt-4 mb-4 profile-highscore">
-                                <thead className="text-center" >
-                                    <tr>
-                                        <th className="p-5 pb-4" colspan="5" scope="colgroup">
-                                            YOUR HIGHSCORES
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody className="p-12">
-                                    <tr>
-                                        <td className="col1">01</td>
-                                        <td className="col2"><span className="text-white">0000</span>0</td>
-                                    </tr>
-                                    <hr/>
-                                    <tr>
-                                        <td className="col1">02</td>
-                                        <td className="col2"><span className="text-white">0000</span>0</td>
-                                    </tr>
-                                    <hr/>
-                                    <tr>
-                                        <td className="col1">03</td>
-                                        <td className="col2"><span className="text-white">0000</span>0</td>
-                                    </tr>
-                                    <hr/>
-                                    <tr>
-                                        <td className="col1">04</td>
-                                        <td className="col2"><span className="text-white">0000</span>0</td>
-                                    </tr>
-                                    <hr/>
-                                    <tr>
-                                        <td className="col1">05</td>
-                                        <td className="col2"><span className="text-white">0000</span>0</td>
-                                    </tr> 
-                                    <tr></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className="w-1/2 h-full flex flex-wrap min-w-0 profile-right">
-                            <div className="profile-right container flex flex-wrap  ml-6 pt-4">
-                                <div className="flex flex-wrap ">
-                                    <div className="total-lines w-full items-center px-16 py-2 pt-4 text-center mb-4">
-                                        <h2 className="text-7xl">0</h2>
-                                        <h4 className="text-2xl">Lines Cleared</h4>
-                                    </div>
-                                <div className="trophies w-full px-5 py-4 h-1/5 mb-4">
-                                    <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
-                                    <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
-                                    <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
-                                    <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
-                                    <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
-                                    <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
-                                    <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
-                                    <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
-                                    <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
-                                    <FontAwesomeIcon icon={faMedal} className="trophy-logo"/>
-                                    
+                </div>
+            </section>
+            <section className="profile-body w-2/3 mx-auto flex flex-wrap">    
+                <div className="w-full flex flex-wrap">
+                    <div className="w-1/2 h-full flex flex-grow flex-wrap ">
+                        <table className="text-2xl table-auto w-full h-full  px-10 mt-4 mb-4 profile-highscore">
+                            <thead className="text-center" >
+                                <tr>
+                                    <th className="p-5 pb-4" colspan="5" scope="colgroup">
+                                        YOUR HIGHSCORES
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody className="p-12">
+                                <tr>
+                                    <td className="col1">01</td>
+                                    <td className="col2"><span className="text-white">0000</span>0</td>
+                                </tr>
+                                <hr/>
+                                <tr>
+                                    <td className="col1">02</td>
+                                    <td className="col2"><span className="text-white">0000</span>0</td>
+                                </tr>
+                                <hr/>
+                                <tr>
+                                    <td className="col1">03</td>
+                                    <td className="col2"><span className="text-white">0000</span>0</td>
+                                </tr>
+                                <hr/>
+                                <tr>
+                                    <td className="col1">04</td>
+                                    <td className="col2"><span className="text-white">0000</span>0</td>
+                                </tr>
+                                <hr/>
+                                <tr>
+                                    <td className="col1">05</td>
+                                    <td className="col2"><span className="text-white">0000</span>0</td>
+                                </tr> 
+                                <tr></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className="w-1/2 h-full flex flex-wrap min-w-0 profile-right">
+                        <div className="profile-right container flex flex-wrap  ml-6 pt-4">
+                            <div className="flex flex-wrap ">
+                                <div className="total-lines w-full items-center px-16 py-2 pt-4 text-center mb-4">
+                                    <h2 className="text-7xl">0</h2>
+                                    <h4 className="text-2xl">Lines Cleared</h4>
                                 </div>
-                                <div className="w-full mb-4">
-                                    <button type="button" className="btn-start-game w-full  text-center text-2xl rounded-md   w-full px-2 py-2  font-bold opacity-100 hover">START GAME</button>
-                                </div>
-                                <div className=" w-full">
-                                    <button type="button" className="btn-sign-out w-full text-2xl rounded-md px-2 py-2 font-bold opacity-100 hover">SIGN OUT</button>
-                                </div>
-                                </div>
-                            </div> 
-                        </div>
-                    </div>     
-               {/* </div> */}
+                            <div className="trophies w-full px-5 py-4 h-1/5 mb-4">
+                                <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
+                                <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
+                                <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
+                                <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
+                                <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
+                                <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
+                                <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
+                                <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
+                                <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
+                                <FontAwesomeIcon icon={faMedal} className="trophy-logo"/>
+                                
+                            </div>
+                            <div className="w-full mb-4">
+                                <button type="button" className="btn-start-game w-full  text-center text-2xl rounded-md   w-full px-2 py-2  font-bold opacity-100 hover">START GAME</button>
+                            </div>
+                            <div className=" w-full">
+                                <button type="button" className="btn-sign-out w-full text-2xl rounded-md px-2 py-2 font-bold opacity-100 hover">SIGN OUT</button>
+                            </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>     
             </section>
         </div>
     </div>
