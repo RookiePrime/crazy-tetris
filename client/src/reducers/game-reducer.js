@@ -79,10 +79,10 @@ const gameReducer = (state = defaultState(), action) => {
             newState.level = level
             newState.speed = speed
             
-            // Score & level increases decrease interval
+            // Score increases interval
             newState.score = score + checkRows(newGrid)
-            newState.level = level + levelUp(newState.score);
-            newState.speed = speed - speedIncrease(newState.level);
+            newState.level = levelUp(newState.score);
+            newState.speed = speedIncrease(newState.level);
 
             return newState
 
