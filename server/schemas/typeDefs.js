@@ -10,7 +10,7 @@ const typeDefs = gql`
   }
 
   type Highscore {
-    highscore: Int!
+    highscore: Int
     username: String!
   }
 

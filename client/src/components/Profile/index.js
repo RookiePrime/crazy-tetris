@@ -3,8 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faTrophy, faMedal } from '@fortawesome/free-solid-svg-icons';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { QUERY_TOPSCORES } from '../../utils/queries'
 
 function Profile() {
+    
+    const { loading, data } = useQuery(QUERY_TOPSCORES);
+    const scoresList = data?.topscores || [];
+    loading? console.log("loading") : console.log(scoresList);
     return(
     <div className="container mx-auto flex w-full h-screen items-center justify-center">
         <div className="frame">
@@ -39,31 +45,20 @@ function Profile() {
                                     </tr>
                                 </thead>
                                 <tbody className="p-12">
-                                    <tr>
-                                        <td className="col1">01</td>
-                                        <td className="col2"><span className="text-white">0000</span>0</td>
-                                    </tr>
-                                    <hr/>
-                                    <tr>
-                                        <td className="col1">02</td>
-                                        <td className="col2"><span className="text-white">0000</span>0</td>
-                                    </tr>
-                                    <hr/>
-                                    <tr>
-                                        <td className="col1">03</td>
-                                        <td className="col2"><span className="text-white">0000</span>0</td>
-                                    </tr>
-                                    <hr/>
-                                    <tr>
-                                        <td className="col1">04</td>
-                                        <td className="col2"><span className="text-white">0000</span>0</td>
-                                    </tr>
-                                    <hr/>
-                                    <tr>
-                                        <td className="col1">05</td>
-                                        <td className="col2"><span className="text-white">0000</span>0</td>
-                                    </tr> 
-                                    <tr></tr>
+                                    {loading ?
+                                        <h3>Loading...</h3> : scoresList.length > 0?
+                                        scoresList.map((score, i) => (
+                                        <>
+                                        <tr>
+                                            <td className="col1">0{i+1}</td>
+                                            <td className="col2"><span className="text-white">{score.highscore}</span></td>
+                                        </tr>
+                                        {/* <hr/> */}
+                                        </>
+                                        ))
+                                        : <h1>Play game to have Highscore</h1>
+                                    }
+                                    
                                 </tbody>
                             </table>
                         </div>

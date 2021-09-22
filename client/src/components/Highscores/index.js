@@ -8,6 +8,7 @@ const Highscores = () => {
     const { loading, data } = useQuery(QUERY_TOPSCORES);
     const scoresList = data?.topscores || [];
 
+    // loading? console.log("loading") : console.log(scoresList);
     return (
         <div className="modal-wrap rounded flex flex-col items-center text-center justify-center gap-6 md:p-20 p-6 bg-yellow-400 relative">
 
@@ -18,7 +19,7 @@ const Highscores = () => {
             <h1 className="text-4xl font-normal mb-5">HIGH SCORES</h1>
 
                 {loading ?
-                    <h3>Loading...</h3> : scoresList.length > 1?
+                    <h3>Loading...</h3> : scoresList.length > 0?
                     scoresList.map((score, i) => (
                         <div className='flex justify-between mx-10 border-b-2 border-black border-dashed' key={i}>
                             <div className='px-4 my-3'>
