@@ -1,23 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faTrophy, faMedal } from '@fortawesome/free-solid-svg-icons';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
 
 function Profile() {
-
-    const [username, setUsername] = useState({ name: ''});
-    const { name } = username;
-
-    function handleChange(e) {
-        setUsername({username, name: e.target.value })
-    }
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log(username);
-    }
-
     return(
     <div className="container mx-auto flex w-full h-screen items-center justify-center">
         <div className="frame">
@@ -29,13 +16,13 @@ function Profile() {
                 {/* <div className="profile-body w-4/5"> */}
                     <div className="w-full">
                         <div className="input-wrapper relative pb-4">
-                            <form id="contact-form" onSubmit={handleSubmit}>
+                            <form id="contact-form">
                                 <label htmlFor="username" icon={faUser}><FontAwesomeIcon className="user-icon fa-3x" icon={faUser}/> </label>
-                                <input type="text" defaultValue={username.name}  
-                                onChange={handleChange} name="name" 
+                                <input type="text" defaultValue={Auth.getProfile().data.username}  
+                                name="name" 
                                 htmlFor="username" id="username" 
                                 className="rounded-2xl text-black-500 w-full p-6 text-center  profile-input" 
-                                placeholder="newuser432"/>
+                                placeholder={Auth.getProfile().data.username}/>
                             </form>
                         </div>
                     </div>

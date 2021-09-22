@@ -1,6 +1,7 @@
 import React from 'react'
 import { faUser } from "@fortawesome/free-solid-svg-icons"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Auth from '../../../utils/auth';
 
 export default function Highscore(props) {
 
@@ -9,7 +10,7 @@ export default function Highscore(props) {
  
       <p>
         <FontAwesomeIcon icon={faUser} />
-        USER
+        {Auth.getProfile().data.username}
       </p>
 
     </div>

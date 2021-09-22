@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { resume, restart } from '../../../actions';
 import { faUser } from "@fortawesome/free-solid-svg-icons"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Auth from '../../../utils/auth';
 
 export default function PausePopup(props) {
   const isRunning = useSelector((state) => state.game.isRunning);
@@ -44,7 +45,8 @@ export default function PausePopup(props) {
 
       <p className="gameP">
         <FontAwesomeIcon icon={faUser} />
-        USER
+        
+        {Auth.getProfile().data.username}
       </p>
 
     </div>

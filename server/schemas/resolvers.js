@@ -18,9 +18,8 @@ const resolvers = {
         return Highscore.find().sort('-highscore').limit(5);
       },
       highscores: async (parent, { username }) => {
-        const params = username ? { username } : {};
-        return Highscore.find(params)
-        .sort({ createdAt: -1 });
+        const params = { username };
+        return Highscore.find(params).sort('-highscore').limit(5);
       },
     },
 
