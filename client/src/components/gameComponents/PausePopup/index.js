@@ -23,7 +23,7 @@ export default function PausePopup(props) {
 
   return (
     <div className={`pause-popup ${isHidden}`}>
-      <h1> {message} </h1>
+      <h1 className='gameH1'> {message} </h1>
 
       <button className="popup-button" onClick={(e) => {
         if(gameOver) { dispatch(restart()) }
@@ -40,7 +40,7 @@ export default function PausePopup(props) {
         }}>{ gameOver ? 'SAVE HIGHSCORE' : 'QUIT GAME' }</button>
       </Link>
 
-      <p>
+      <p className="gameP">
         <FontAwesomeIcon icon={faUser} />
         USER
       </p>
