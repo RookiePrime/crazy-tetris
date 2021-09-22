@@ -23,7 +23,6 @@ function Login () {
             const mutationResponse = await login({
                 variables: { username: formState.username, password: formState.password },
             });
-            console.log("2");
             const token = mutationResponse.data.login.token;
             Auth.login(token);
             alert("logged in");   

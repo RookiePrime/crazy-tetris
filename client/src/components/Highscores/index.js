@@ -13,7 +13,7 @@ const Highscores = () => {
                     <h3 className='text-center m-8 text-4xl'>HIGH SCORES</h3>
                 </div>
                 {loading ?
-                    <h3>Loading...</h3> :
+                    <h3>Loading...</h3> : scoresList.length > 1?
                     scoresList.map((score, i) => (
                         <div className='flex justify-between mx-10 border-b-2 border-black border-dashed' key={i}>
                             <div className='px-4 my-3'>
@@ -22,8 +22,8 @@ const Highscores = () => {
                             <div className='px-4 my-3'>
                                 <p className='p-body'>{score.highscore}</p>
                             </div>
-                        </div>
-                    ))   
+                        </div> )) 
+                    : <h1>Play game to have Highscore</h1>
                 }
             </div>
         </div>
