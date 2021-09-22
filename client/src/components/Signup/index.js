@@ -19,6 +19,7 @@ function Signup (props) {
 
     const handleFormSubmit = async (event) => {
       event.preventDefault();
+      // console.log(formState.username);
       const mutationResponse = await addUser({
         variables: {
           username: formState.username,
@@ -28,10 +29,12 @@ function Signup (props) {
       });
       const token = mutationResponse.data.addUser.token;
       Auth.login(token);
+      alert("logged in");
     };
   
     const handleChange = (event) => {
       const { name, value } = event.target;
+      // console.log(event.target.name);
       setFormState({
         ...formState,
         [name]: value,
@@ -46,8 +49,8 @@ function Signup (props) {
 
             <label className="hidden">Username</label>
             <input 
+                name="username"
                 type="text" 
-                value={formState.username}
                 className={`${inputField} text-2xl`}
                 placeholder="Username"
                 onChange={handleChange}
@@ -55,8 +58,8 @@ function Signup (props) {
 
             <label className="hidden">Email</label>
             <input 
-                type="text" 
-                value={formState.email}
+                name="email"
+                type="text"
                 className={`${inputField} text-2xl`}
                 placeholder="Email"
                 onChange={handleChange}
@@ -64,6 +67,7 @@ function Signup (props) {
 
             <label className="hidden">Password</label>
             <input 
+                name="password"
                 type="password"
                 size="50"
                 className={`${inputField} text-2xl`} 
