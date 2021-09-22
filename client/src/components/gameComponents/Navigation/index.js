@@ -8,7 +8,7 @@ export default function Navigation(props) {
     return (
         <div className="game-navigation">
             <a href="/">
-            <img className="game-logo" src={require('../../../assets/images/Logo.png').default} />
+            <img className="game-logo" alt="crazy tetromino logo" src={require('../../../assets/images/Logo.png').default} />
             </a>
 
             <div className="game-user">

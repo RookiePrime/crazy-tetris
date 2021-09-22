@@ -78,10 +78,10 @@ function Signup (props) {
 
             <button className={`md:text-3xl text-lg rounded-md py-2 mt-10 font-bold opacity-100 btn-action submit-btn ${hover}`}>SIGN UP</button>
             <p className="text-lg">Already have an account?
-                <a 
+                <button 
                 className="text-blue-400 font-bold" 
                 onClick = { () => setModalIsOpen(true)}
-                > LOGIN</a>
+                > LOGIN</button>
             </p>
         </form>
 

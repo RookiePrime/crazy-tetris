@@ -12,11 +12,10 @@ export default function PausePopup(props) {
   const isRunning = useSelector((state) => state.game.isRunning);
   const gameOver = useSelector((state) => state.game.gameOver);
   const dispatch = useDispatch();
-  const [addHighscore, { error }] = useMutation(ADD_HIGHSCORE);
+  const [addHighscore] = useMutation(ADD_HIGHSCORE);
 
-  
   const game = useSelector((state => state.game));
-  const { score, level } = game;
+  const { score } = game;
 
   let message = '';
   let isHidden = 'hidden';
@@ -33,11 +32,9 @@ export default function PausePopup(props) {
 
   const saveHighscore = async ()=>{
     try {
-      console.log(score);
       await addHighscore({
         variables: { highscore: score},
       });
-      console.log("highscore saved");
     } catch (e) {
       console.log(e);
     }
@@ -61,7 +58,6 @@ export default function PausePopup(props) {
 
       <p className="gameP">
         <FontAwesomeIcon icon={faUser} />
-        
         {Auth.getProfile().data.username}
       </p>
     </div>

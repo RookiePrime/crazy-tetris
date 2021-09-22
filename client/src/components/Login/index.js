@@ -78,10 +78,10 @@ function Login () {
 
                 <button className={`md:text-3xl text-xl rounded-md py-2 mt-10 font-bold opacity-100 btn-action submit-btn ${hover}`}>LOGIN</button>
                 <p className="text-lg">Don't have an account?
-                    <a 
+                    <button 
                     className="text-blue-400 font-bold" 
                     onClick = { () => setModalIsOpen(true)}
-                    > SIGN UP</a>
+                    > SIGN UP</button>
                 </p>
             </form>
 

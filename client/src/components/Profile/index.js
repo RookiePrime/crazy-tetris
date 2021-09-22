@@ -33,7 +33,7 @@ function Profile() {
                             <table className="text-2xl table-auto w-full h-full  px-10 mt-4 mb-4 profile-highscore">
                                 <thead className="text-center" >
                                     <tr>
-                                        <th className="p-5 pb-4" colspan="5" scope="colgroup">
+                                        <th className="p-5 pb-4" colSpan="5" scope="colgroup">
                                             YOUR HIGHSCORES
                                         </th>
                                     </tr>

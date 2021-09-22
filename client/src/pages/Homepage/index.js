@@ -61,8 +61,8 @@ function Homepage( ) {
             </Link>
 
             <div className="flex flex-row gap-4 my-5">
-                {options.map((option) => 
-                    <button>
+                {options.map((option, i) => 
+                    <button key={i}>
                         <FontAwesomeIcon 
                     icon={option.icon}
                     className={`${menuBtnClass} ${hover} ${option.name} ${option.animate} text-6xl`}
