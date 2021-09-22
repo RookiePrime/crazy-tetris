@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import GridSquare from '../GridSquare';
 import { useSelector, useDispatch } from 'react-redux';
 import { moveDown } from '../../../actions';
-import { shapes } from '../../../utils/gameLogic';
+import { shapes, newBlock } from '../../../utils/gameLogic';
 
 export default function GridBoard(props) {
     const requestRef = useRef();
@@ -11,7 +11,7 @@ export default function GridBoard(props) {
     const dispatch = useDispatch();
 
     const game = useSelector((state) => state.game);
-    const { grid, shape, rotation, x, y, isRunning, speed } = game;
+    const { grid, shape, rotation, x, y, isRunning, speed, level } = game;
     const block = shapes[shape][rotation];
     const blockColor = shape
 
@@ -39,6 +39,14 @@ export default function GridBoard(props) {
         requestRef.current = requestAnimationFrame(update);
         return () => cancelAnimationFrame(requestRef.current)
     }, [isRunning, speed]);
+
+    useEffect(() => {
+        console.log('Begins');
+        if (level > 1) {
+            console.log('Ahoy');
+            newBlock(level);
+        }
+    }, [level]);
 
     //map rows
     const gridSquares = grid.map((rowArray, row) => {

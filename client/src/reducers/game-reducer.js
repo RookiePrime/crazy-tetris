@@ -17,12 +17,12 @@ import {
     addBlockToGrid,
     checkRows,
     levelUp,
-    speedIncrease
+    speedIncrease,
 } from '../utils/gameLogic'
 
 //define a function to handle the actions
 const gameReducer = (state = defaultState(), action) => {
-    const { shape, grid, x, y, rotation, nextShape, score, isRunning, level, speed } = state;
+    const { shape, grid, x, y, rotation, nextShape, score, isRunning, level, speed, shapes } = state;
 
     switch(action.type) {
         case ROTATE:
@@ -87,11 +87,21 @@ const gameReducer = (state = defaultState(), action) => {
             return newState
 
         // case HARD_DROP:
-        //     if(canMoveTo(shape, grid, x, y, rotation)) {
-        //         return { ...state, x: x + 1 };
+        //     let finished = false;
+        //     let newY = y;
+        //     // If 
+        //     while (!finished || newY < 10) {
+        //         newY++;
+        //         const canMove = canMoveTo(shape, grid, x, newY,)
+        //         if(canMoveTo(shape, grid, x, newY, rotation)) {
+        //             continue;
+        //         } else {
+        //             finished = true;
+        //             console.log(state, newY);
+        //             return { ...state, y: newY }
+        //         }
         //     }
-        //     return state
-            
+        //     break;
 
         case RESUME:
             
