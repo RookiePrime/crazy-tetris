@@ -185,9 +185,9 @@ hr {
 @media screen and (max-width: 600px){
 
   body {
-    background-color: #FFBF42;
+    background-color: #ffff;
     opacity: 1;
-    background-image:  linear-gradient(#d1d1d3 1px, transparent 1px), linear-gradient(to right, #d1d1d3 1px, #FFBF42 1px);
+    background-image:  linear-gradient(#d1d1d3 1px, transparent 1px), linear-gradient(to right, #d1d1d3 1px, #ffff 1px);
     background-size: 6rem 6rem;
   }
 

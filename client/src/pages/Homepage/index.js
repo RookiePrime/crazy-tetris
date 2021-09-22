@@ -51,12 +51,12 @@ function Homepage( ) {
 
         <section className="flex flex-col gap-4">
             <button
-                className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover}`}
+                className={`text-2xl rounded-md p-2 font-bold opacity-100 btn-action ${hover}`}
                 onClick = { () => {setModalIsOpen(true); setCurrentAction(actions[0])}}
             > LOGIN </button>
-            <Link to={'/game'}>
+            <Link to={'/game'} className={`rounded-md opacity-100 btn-action ${hover}`}>
                 <button
-                    className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover}`}
+                    className={`text-2xl p-2 font-bold`}
                 > START GAME </button>
             </Link>
 
