@@ -39,7 +39,12 @@ function Signup (props) {
     };
 
     return (
-    <section className="flex flex-col items-center text-center justify-center gap-4">
+    <section className="modal-wrap rounded flex flex-col items-center text-center justify-center gap-6 md:p-20 p-6 bg-yellow-400 relative">
+        
+        <a href='./' className="text-8xl">
+            <FontAwesomeIcon icon={faTimes} className={`text-4xl absolute top-3 right-10`}/>
+        </a>
+
         <h1 className="text-4xl font-normal mb-5">SIGN UP</h1>
 
         <form className="flex flex-col gap-6" onSubmit={handleFormSubmit}>
@@ -48,16 +53,16 @@ function Signup (props) {
             <input 
                 name="username"
                 type="text" 
-                className={`${inputField} text-2xl`}
+                className={`${inputField} md:text-2xl text-lg`}
                 placeholder="Username"
                 onChange={handleChange}
             />
 
             <label className="hidden">Email</label>
             <input 
+                type="text" 
+                className={`${inputField} md:text-2xl text-lg`}
                 name="email"
-                type="text"
-                className={`${inputField} text-2xl`}
                 placeholder="Email"
                 onChange={handleChange}
             />
@@ -66,13 +71,12 @@ function Signup (props) {
             <input 
                 name="password"
                 type="password"
-                size="50"
-                className={`${inputField} text-2xl`} 
+                className={`${inputField} md:text-2xl text-lg`} 
                 placeholder="Password"
                 onChange={handleChange}
             />
 
-            <button className={`text-3xl rounded-md py-2 mt-10 font-bold opacity-100 btn-action submit-btn ${hover}`}>SIGN UP</button>
+            <button className={`md:text-3xl text-lg rounded-md py-2 mt-10 font-bold opacity-100 btn-action submit-btn ${hover}`}>SIGN UP</button>
             <p className="text-lg">Already have an account?
                 <a 
                 className="text-blue-400 font-bold" 
@@ -84,12 +88,8 @@ function Signup (props) {
         <Modal 
         isOpen={(modalIsOpen)}
         onRequestClose={() => setModalIsOpen(false)}
-        className="login-signup box-content h-3/5 w-3/5 container mx-auto my-56 p-10 rounded flex flex-col items-center justify-center gap-4 bg-yellow-400 relative"
-        >
-            <a href='./' className="text-4xl">
-                <FontAwesomeIcon icon={faTimes} className={`text-4xl absolute top-3 right-10`}/>
-            </a>
-            
+        className="box-content h-screen container mx-auto flex flex-col items-center justify-center gap-6"
+        >   
             <Login />
 
         </Modal>
