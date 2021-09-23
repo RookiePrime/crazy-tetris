@@ -66,13 +66,10 @@ function Profile() {
                             <div className="profile-right container flex flex-wrap  ml-6 pt-4">
                                 <div className="flex flex-wrap ">
                                     <div className="total-lines w-full items-center px-16 py-2 pt-4 text-center mb-4">
-                                        <h2 className="text-7xl">0</h2>
-                                        <h4 className="text-2xl">Lines Cleared</h4>
+                                        <h2 className="text-7xl">{filterList[0].highscore/40}</h2>
+                                        <h4 className="text-2xl">is the highest lines you cleared!</h4>
                                     </div>
                                 <div className="trophies w-full px-5 py-4 h-1/5 mb-4">
-                                    <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
-                                    <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
-                                    <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
                                     <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
                                     <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
                                     <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
