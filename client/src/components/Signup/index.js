@@ -19,15 +19,22 @@ function Signup (props) {
 
     const handleFormSubmit = async (event) => {
       event.preventDefault();
-      const mutationResponse = await addUser({
-        variables: {
-          username: formState.username,
-          email: formState.email,
-          password: formState.password
-        },
-      });
-      const token = mutationResponse.data.addUser.token;
-      Auth.login(token);
+      if(formState.username !== "" || formState.password !== ""){
+        try{
+          const mutationResponse = await addUser({
+            variables: {
+              username: formState.username,
+              email: formState.email,
+              password: formState.password
+            },
+          });
+          const token = mutationResponse.data.addUser.token;
+          Auth.login(token);
+        }
+        catch(e){
+          alert("Enter proper credentials")
+        }
+      }
     };
   
     const handleChange = (event) => {

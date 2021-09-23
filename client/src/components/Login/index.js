@@ -19,15 +19,17 @@ function Login () {
     
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        try {
-            const mutationResponse = await login({
-                variables: { username: formState.username, password: formState.password },
-            });
-            const token = mutationResponse.data.login.token;
-            Auth.login(token);
-            alert("logged in");   
-        } catch (e) {
-        console.log(e);
+        if(formState.username !== "" || formState.password !== ""){
+            try {
+                const mutationResponse = await login({
+                    variables: { username: formState.username, password: formState.password },
+                });
+                const token = mutationResponse.data.login.token;
+                Auth.login(token);
+                alert("logged in");   
+            } catch (e) {
+            console.log(e);
+            }
         }
     };
 
