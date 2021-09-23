@@ -19,15 +19,17 @@ function Login () {
     
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        try {
-            const mutationResponse = await login({
-                variables: { username: formState.username, password: formState.password },
-            });
-            const token = mutationResponse.data.login.token;
-            Auth.login(token);
-            alert("logged in");   
-        } catch (e) {
-        console.log(e);
+        if(formState.username !== "" || formState.password !== ""){
+            try {
+                const mutationResponse = await login({
+                    variables: { username: formState.username, password: formState.password },
+                });
+                const token = mutationResponse.data.login.token;
+                Auth.login(token);
+                alert("logged in");   
+            } catch (e) {
+            console.log(e);
+            }
         }
     };
 
@@ -78,10 +80,10 @@ function Login () {
 
                 <button className={`md:text-3xl text-xl rounded-md py-2 mt-10 font-bold opacity-100 btn-action submit-btn ${hover}`}>LOGIN</button>
                 <p className="text-lg">Don't have an account?
-                    <a 
+                    <button 
                     className="text-blue-400 font-bold" 
                     onClick = { () => setModalIsOpen(true)}
-                    > SIGN UP</a>
+                    > SIGN UP</button>
                 </p>
             </form>
 

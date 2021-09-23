@@ -1,12 +1,14 @@
 import React from 'react';
 import { faUser } from "@fortawesome/free-solid-svg-icons"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Auth from '../../../utils/auth';
+import { Link } from 'react-router-dom';
 
 export default function Navigation(props) {
     return (
         <div className="game-navigation">
             <a href="/">
-            <img className="game-logo" src={require('../../../assets/images/Logo.png').default} />
+            <img className="game-logo" alt="crazy tetromino logo" src={require('../../../assets/images/Logo.png').default} />
             </a>
 
             <div className="game-user">
@@ -24,14 +26,12 @@ export default function Navigation(props) {
                     </h3>
                 </a>
                 
-                {/*---------- TODO: CONNECT TO DB --------*/}
                 {/*-- IF USER NOT SIGN IN = LOGIN MODAL --*/}
                 {/*--- IF USER SIGN IN = GO TO PROFILE ---*/}
-                <a href="/" className="game-userinfo">
-                        <FontAwesomeIcon icon={faUser} />
-                        USER123
-
-                </a>
+                <Link to="/" className="game-userinfo">
+                    <FontAwesomeIcon icon={faUser} />
+                    {Auth.loggedIn()? Auth.getProfile().data.username : "Anonymous"}
+                </Link>
             </div>
         </div>
     )
