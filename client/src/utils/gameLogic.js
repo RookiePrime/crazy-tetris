@@ -14,6 +14,86 @@ export const gridDefault = () => {
     return array
 }
 
+const masterShapes = [
+    // CRAZY SHAPES
+    // + shape
+    [[[0,0,8,0],
+      [0,8,8,8],
+      [0,0,8,0],
+      [0,0,0,0]]],
+
+    // C shape
+    [[[0, 10, 10, 0],
+      [0, 10, 0, 0],
+      [0, 10, 10, 0]],
+     [[10, 0, 10, 0],
+      [10, 10, 10, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0]],
+     [[10, 10, 0, 0],
+      [0, 10, 0, 0],
+      [10, 10, 0, 0],
+      [0, 0, 0, 0]],
+     [[0, 0, 0, 0],
+      [10, 10, 10, 0],
+      [10, 0, 10, 0],
+      [0, 0, 0, 0]]],
+
+    // Hollow Box
+    [[[0, 0, 0, 0],
+      [0, 11, 11, 11],
+      [0, 11, 0, 11],
+      [0, 11, 11, 11]]],
+
+    // Tree shape
+    [
+       [[0, 12, 12, 12],
+        [0, 0, 12, 0],
+        [0, 12, 12, 12],
+        [0, 0, 0, 0]],
+       [[0, 12, 0, 12],
+        [0, 12, 12, 12],
+        [0, 12, 0, 12],
+        [0, 0, 0, 0]]
+    ],
+    // Weirdo shape
+    [
+      [[0, 0, 0, 0],
+       [14, 0, 14, 0],
+       [14, 14, 0, 0],
+       [0, 0, 0, 0]],
+      [[0, 14, 14, 0],
+       [0, 14, 0, 0],
+       [0, 0, 14, 0],
+       [0, 0, 0, 0]],
+      [[0, 0, 0, 0],
+       [0, 14, 14, 0],
+       [14, 0, 14, 0],
+       [0, 0, 0, 0]],
+      [[14, 0, 0, 0],
+       [0, 14, 0, 0],
+       [14, 14, 0, 0],
+       [0, 0, 0, 0]]
+    ],
+
+    
+  // DUMB SHAPES
+  // Dot
+    [[[0,0,0,0],
+      [0,0,9,0],
+      [0,0,0,0],
+      [0,0,0,0]]],
+    // Twin dots
+    [[[0, 0, 0, 0],
+      [0, 13, 0, 0],
+      [0, 0, 0, 0],
+      [0, 13, 0, 0]],
+     [[0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [13, 0, 13, 0],
+      [0, 0, 0, 0]]]
+];
+
 // Define block shapes and their rotations as arrays.
 export const shapes = [
   // none
@@ -128,17 +208,7 @@ export const shapes = [
     [0,7,7,0],
     [0,0,0,0]]],
 
-    // CRAZY SHAPE
-    [[[0,0,8,0],
-      [0,8,8,8],
-      [0,0,8,0],
-      [0,0,0,0]]],
-    
-  // DUMB SHAPE
-    [[[0,0,0,0],
-      [0,0,9,0],
-      [0,0,0,0],
-      [0,0,0,0]]],
+
 ]
 
 // Random Shape
@@ -293,4 +363,18 @@ export const speedIncrease = (currentLevel) => {
     speedInc = 0
   }
   return speedInc;
+}
+
+export const newBlock = (currentLevel) => {
+  if (currentLevel > 1) {
+    const randomPieceVal = random(0, masterShapes.length - 1);
+    shapes.push(masterShapes[randomPieceVal]);
+    masterShapes.splice(randomPieceVal, 1);
+  }
+}
+
+export const resetBlocks = () => {
+  while (shapes.length > 8) {
+    shapes.pop();
+  };
 }
