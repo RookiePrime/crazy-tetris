@@ -7,16 +7,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Auth from '../../../utils/auth';
 import { useMutation } from '@apollo/client';
 import { ADD_HIGHSCORE } from '../../../utils/mutations';
+import { QUERY_HIGHSCORES } from '../../../utils/queries';
 
 export default function PausePopup(props) {
   const isRunning = useSelector((state) => state.game.isRunning);
   const gameOver = useSelector((state) => state.game.gameOver);
   const dispatch = useDispatch();
-  const [addHighscore, { error }] = useMutation(ADD_HIGHSCORE);
+  const [addHighscore] = useMutation(ADD_HIGHSCORE, {
+    update(cache, { data: highscore }) {
+      try {
+        const { highscores } = cache.readQuery({ query: QUERY_HIGHSCORES, variables: { username: Auth.getProfile().data.username } });
+        // Why here and not down there? See the next line. This is more for readability than functionality, I know I could squeeze this down.
+        const newScores = [ { ...highscore.addHighscore, username: Auth.getProfile().data.username }, ...highscores];
+        // It's a sort! I'm sorting the values. While the database calls themselves sort it, the cache doesn't seem to do that, at least not the same way. So I'm manually sorting before caching.
+        newScores.sort((a, b) => b.highscore - a.highscore);
 
-  
+        cache.writeQuery({
+          query: QUERY_HIGHSCORES,
+          data: { highscores: newScores },
+          variables: { username: Auth.getProfile().data.username }
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  });
+
   const game = useSelector((state => state.game));
-  const { score, level } = game;
+  const { score } = game;
 
   let message = '';
   let isHidden = 'hidden';
@@ -33,11 +51,9 @@ export default function PausePopup(props) {
 
   const saveHighscore = async ()=>{
     try {
-      console.log(score);
       await addHighscore({
-        variables: { highscore: score},
+        variables: { highscore: score, username: Auth.getProfile().data.username },
       });
-      console.log("highscore saved");
     } catch (e) {
       console.log(e);
     }
@@ -56,13 +72,12 @@ export default function PausePopup(props) {
       <Link to='/'>
         <button className={`popup-button btn-action ${hover}`} onClick={(e) => {
           e.target.name === "QUIT GAME" ? dispatch(restart()) : saveHighscore();
-        }}>{ gameOver ? 'SAVE HIGHSCORE' : 'QUIT GAME' }</button>
+        }}>{ gameOver ? Auth.loggedIn()? 'SAVE HIGHSCORE' : "SIGNUP" : 'QUIT GAME' }</button>
       </Link>
 
       <p className="gameP">
         <FontAwesomeIcon icon={faUser} />
-        
-        {Auth.getProfile().data.username}
+        {Auth.loggedIn()? Auth.getProfile().data.username : "Anonymous"}
       </p>
     </div>
   )

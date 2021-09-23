@@ -8,7 +8,7 @@ export default function Navigation(props) {
     return (
         <div className="game-navigation">
             <a href="/">
-            <img className="game-logo" src={require('../../../assets/images/Logo.png').default} />
+            <img className="game-logo" alt="crazy tetromino logo" src={require('../../../assets/images/Logo.png').default} />
             </a>
 
             <div className="game-user">
@@ -30,7 +30,7 @@ export default function Navigation(props) {
                 {/*--- IF USER SIGN IN = GO TO PROFILE ---*/}
                 <Link to="/" className="game-userinfo">
                     <FontAwesomeIcon icon={faUser} />
-                    {Auth.getProfile().data.username}
+                    {Auth.loggedIn()? Auth.getProfile().data.username : "Anonymous"}
                 </Link>
             </div>
         </div>

@@ -10,7 +10,7 @@ const typeDefs = gql`
   }
 
   type Highscore {
-    highscore: Int!
+    highscore: Int
     username: String!
   }
 
@@ -18,6 +18,7 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    highscores: [Highscore]
   }
 
   type HighscoreAdd {
@@ -35,7 +36,7 @@ const typeDefs = gql`
     login(username: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addScore(username: String!, highscore: Int!): Highscore
-    addHighscore(highscore: Int!): HighscoreAdd
+    addHighscore(highscore: Int!): Highscore
   }
 `;
 

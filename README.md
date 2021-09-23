@@ -35,7 +35,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## 🌐 Deployed Application Link 
 
-[**Click Here**]() to view the deployed application. 
+[**Click Here**](https://crazy-tetrominos.herokuapp.com/) to view the deployed application. 
 
 ## ▶️ Final Output 
 
@@ -53,7 +53,10 @@ Contributions, issues and feature requests are welcome. Feel free to check issue
 
 Created By:
  * [Kirti Patel]( https://github.com/kirti18patel)
- * [Kiefer Levine]( https://github.com/rookieprime )
- * [Lisa Le]( https://github.com/lisahuele )
- * [Sonali Pandey]( )
- * [Rizzel Nolasco]( https://github.com/rizznn/ )
+ * [Kiefer Levine](https://github.com/rookieprime )
+ * [Lisa Le](https://github.com/lisahuele)
+ * [Sonali Pandey](https://github.com/sonali-pandey)
+ * [Rizzel Nolasco](https://github.com/rizznn)
+
+Code structure referenced using: [makeschool.org]
+(https://makeschool.org/mediabook/oa/tutorials/react-redux-tetris-app-tutorial-o4s/tetris-introduction/)

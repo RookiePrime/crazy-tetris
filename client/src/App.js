@@ -16,7 +16,7 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem('id_token') || "";
   return {
     headers: {
       ...headers,
@@ -38,11 +38,9 @@ function App() {
       <ApolloProvider client={client}>
         <Router>
           <Switch>
-            
             <Route exact path='/'> 
               {loggedIn ? <Redirect to ="/profile" /> : <Homepage />}
             </Route>
-            {/* <Route exact path='/' component={Homepage} /> */}
             <Route exact path='/profile' component={Profile} />
             <Route exact path='/game' component={Game} />
             <Route exact path='/highscores' component={Highscores} />
