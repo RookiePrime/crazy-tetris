@@ -343,6 +343,7 @@ and 'b'. The '.' represents an empty cell on the grid. */
 .game-logo {
   width: 7vh;
   min-width: 30px;
+  margin-left: 5vh;
 }
 
 .game-user {

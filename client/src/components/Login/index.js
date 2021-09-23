@@ -43,7 +43,7 @@ function Login () {
     };
 
     return (
-        <section className="modal-wrap rounded flex flex-col items-center text-center justify-center gap-6 md:p-20 p-6 bg-yellow-400 relative">
+        <section className="modal-wrap rounded flex flex-col items-center text-center justify-center gap-6 md:p-20 p-6 bg-yellow-400 relative model-register">
             
             <a href='./' className="text-8xl">
                 <FontAwesomeIcon icon={faTimes} className={`text-4xl absolute top-3 right-10`}/>
@@ -78,12 +78,15 @@ function Login () {
                 </div>
                 ) : null}
 
-                <button className={`md:text-3xl text-xl rounded-md py-2 mt-10 font-bold opacity-100 btn-action submit-btn ${hover}`}>LOGIN</button>
+                <button className={`md:text-3xl text-xl rounded-md py-2 font-bold opacity-100 btn-action submit-btn ${hover}`}>
+                    LOGIN
+                </button>
+
                 <p className="text-lg">Don't have an account?
-                    <button 
-                    className="text-blue-400 font-bold" 
+                    <a
+                    className="text-blue-400 font-bold register-link" 
                     onClick = { () => setModalIsOpen(true)}
-                    > SIGN UP</button>
+                    >SIGN UP</a>
                 </p>
             </form>
 
