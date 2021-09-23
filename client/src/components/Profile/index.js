@@ -19,7 +19,6 @@ function Profile() {
                     <h1 className="flex flex-wrap justify-center text-5xl pb-8 profile-font">PROFILE</h1>
             </header>
             <section className="w-2/3 mx-auto flex mt-4 pt-2">
-                {/* <div className="profile-body w-4/5"> */}
                     <div className="w-full">
                         <div className="input-wrapper relative pb-4">
                             <form id="contact-form">
@@ -58,7 +57,6 @@ function Profile() {
                                         ))
                                         : <h1>Play game to have Highscore</h1>
                                     }
-                                    
                                 </tbody>
                             </table>
                         </div>
@@ -66,7 +64,7 @@ function Profile() {
                             <div className="profile-right container flex flex-wrap  ml-6 pt-4">
                                 <div className="flex flex-wrap ">
                                     <div className="total-lines w-full items-center px-16 py-2 pt-4 text-center mb-4">
-                                        <h2 className="text-7xl">{filterList[0].highscore/40}</h2>
+                                        <h2 className="text-7xl">{filterList.length > 0 ? filterList[0].highscore/40 : 0}</h2>
                                         <h4 className="text-2xl">is the highest lines you cleared!</h4>
                                     </div>
                                 <div className="trophies w-full px-5 py-4 h-1/5 mb-4">
@@ -77,7 +75,6 @@ function Profile() {
                                     <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
                                     <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
                                     <FontAwesomeIcon icon={faMedal} className="trophy-logo"/>
-                                    
                                 </div>
                                 <Link to={'/game'} className="w-full mb-4">
                                     <button type="button" className="btn-start-game w-full  text-center text-2xl rounded-md   w-full px-2 py-2  font-bold opacity-100 hover">START GAME</button>
@@ -89,8 +86,7 @@ function Profile() {
                                 </div>
                             </div> 
                         </div>
-                    </div>     
-               {/* </div> */}
+                    </div>
             </section>
         </div>
     </div>
