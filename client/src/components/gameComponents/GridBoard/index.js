@@ -40,12 +40,9 @@ export default function GridBoard(props) {
         return () => cancelAnimationFrame(requestRef.current)
     }, [isRunning, speed]);
 
+    // Any time the level changes, as long as it's higher than 1, a new block is added to the game.
     useEffect(() => {
-        console.log('Begins');
-        if (level > 1) {
-            console.log('Ahoy');
-            newBlock(level);
-        }
+        if (level > 1) newBlock(level);
     }, [level]);
 
     //map rows
