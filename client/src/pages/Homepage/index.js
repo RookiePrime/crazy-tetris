@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faInfoCircle, faTrophy, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faInfoCircle, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
 import Login from '../../components/Login';
 import Credit from '../../components/Credit';
@@ -51,18 +51,18 @@ function Homepage( ) {
 
         <section className="flex flex-col gap-4">
             <button
-                className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover}`}
-                onClick = { () => setModalIsOpen(true) }
+                className={`text-2xl rounded-md p-2 font-bold opacity-100 btn-action ${hover}`}
+                onClick = { () => {setModalIsOpen(true); setCurrentAction(actions[0])}}
             > LOGIN </button>
-            <Link to={'/game'}>
+            <Link to={'/game'} className={`rounded-md opacity-100 btn-action ${hover}`}>
                 <button
-                    className={`text-2xl rounded-md py-2 px-2 font-bold opacity-100 btn-action ${hover}`}
+                    className={`text-2xl p-2 font-bold`}
                 > START GAME </button>
             </Link>
 
             <div className="flex flex-row gap-4 my-5">
-                {options.map((option) => 
-                    <button>
+                {options.map((option, i) => 
+                    <button key={i}>
                         <FontAwesomeIcon 
                     icon={option.icon}
                     className={`${menuBtnClass} ${hover} ${option.name} ${option.animate} text-6xl`}
@@ -77,20 +77,15 @@ function Homepage( ) {
         <Modal 
         isOpen={(modalIsOpen)}
         onRequestClose={() => setModalIsOpen(false)}
-        className="modal-wrap box-content h-3/5 w-3/5 container mx-auto my-56 p-6 rounded flex flex-col items-center justify-center gap-6 bg-yellow-400 relative"
+        className="box-content h-screen container mx-auto flex flex-col items-center justify-center gap-6"
         >
-            <a href='./' className="text-4xl">
-                <FontAwesomeIcon icon={faTimes} className={`text-4xl absolute top-3 right-10`}/>
-            </a>
-
             {
-            
             currentAction === actions[0] ? <Login />
             : currentOption === options[0] ? <Settings />
             : currentOption === options[1] ? <Credit />
             :  currentOption === options[2] ? <Highscores />
             : <Signup />
-}
+            }
 
         </Modal>
 

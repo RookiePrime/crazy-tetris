@@ -18,9 +18,8 @@ const resolvers = {
         return Highscore.find().sort('-highscore').limit(5);
       },
       highscores: async (parent, { username }) => {
-        const params = username ? { username } : {};
-        return Highscore.find(params)
-        .sort({ createdAt: -1 });
+        const params = { username };
+        return Highscore.find(params).sort('-highscore').limit(5);
       },
     },
 
@@ -31,8 +30,8 @@ const resolvers = {
 
         return { token, user };
       },
-      login: async (parent, { email, password }) => {
-        const user = await User.findOne({ email });
+      login: async (parent, { username, password }) => {
+        const user = await User.findOne({ username });
       
         if (!user) {
           throw new AuthenticationError('Incorrect credentials');

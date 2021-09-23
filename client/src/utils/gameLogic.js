@@ -248,49 +248,49 @@ export const checkRows = (grid) => {
 }
 
 export const levelUp = (newScore) => {
-  let levelInc = 0;
-  if(newScore > 199 && newScore < 399) {
-    levelInc = 1;
-  } else if (newScore > 399 && newScore < 599) {
+  let levelInc = 1;
+  if (newScore > 199 && newScore < 399) {
     levelInc = 2;
-  } else if (newScore > 599 && newScore < 799) {
+  } else if (newScore > 399 && newScore < 599) {
     levelInc = 3;
-  } else if (newScore > 799 && newScore < 999) {
+  } else if (newScore > 599 && newScore < 799) {
     levelInc = 4;
-  } else if (newScore > 999 && newScore < 1199) {
+  } else if (newScore > 799 && newScore < 999) {
     levelInc = 5;
-  } else if (newScore > 1199 && newScore < 1399) {
+  } else if (newScore > 999 && newScore < 1199) {
     levelInc = 6;
-  } else if (newScore > 1399 && newScore < 1599) {
+  } else if (newScore > 1199 && newScore < 1399) {
     levelInc = 7;
-  } else if (newScore > 1599 && newScore < 1799) {
+  } else if (newScore > 1399 && newScore < 1599) {
     levelInc = 8;
-  }  else if (newScore > 1799) {
+  } else if (newScore > 1599 && newScore < 1799) {
     levelInc = 9;
+  }  else if (newScore > 1799) {
+    levelInc = 10;
   }
   return levelInc;
 };
 
 export const speedIncrease = (currentLevel) => {
-  let speedInc = 0;
+  let speedInc = 1000;
   if(currentLevel === 2) {
-    speedInc = 100
+    speedInc = 800
   } else if(currentLevel === 3) {
-    speedInc = 200
+    speedInc = 600
   } else if(currentLevel === 4) {
-    speedInc = 300
+    speedInc = 500
   } else if(currentLevel === 5) {
     speedInc = 400
   } else if(currentLevel === 6) {
-    speedInc = 500
+    speedInc = 300
   } else if(currentLevel === 7) {
-    speedInc = 600
+    speedInc = 200
   } else if(currentLevel === 8) {
-    speedInc = 700
+    speedInc = 100
   } else if(currentLevel === 9) {
-    speedInc = 800
+    speedInc = 50
   } else if(currentLevel === 10) {
-    speedInc = 900
+    speedInc = 0
   }
   return speedInc;
 }

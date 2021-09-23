@@ -67,25 +67,29 @@ function Credit () {
     const hover = "transform transition duration-300 ease-in-out hover:scale-110";
 
     return (
-        <section className="flex flex-col items-center justify-center gap-6">
+        <section className="modal-wrap rounded flex flex-col items-center text-center justify-center gap-6 md:p-20 p-6 bg-yellow-400 relative">
+            <a href='./' className="text-8xl">
+                <FontAwesomeIcon icon={faTimes} className={`text-4xl absolute top-3 right-10`}/>
+            </a>
+
             <h1 className="text-4xl font-normal mb-5">CREDITS</h1>
 
-            <h2 className="font-bold text-3xl block my-3 text-left">Built By</h2>
+            <h2 className="font-bold md:text-3xl text-2xl block text-left">Built By</h2>
             <ul>
                 {creators.map((creator) => 
                 <li className={`inline mx-3 ${hover}`}>
-                    <a href={`${creator.git}`} className="font-bold text-2xl creator-list" target="_blank" rel="oopener noreferrer">{creator.name}</a>
+                    <a href={`${creator.git}`} className="font-bold md:text-2xl text-xl creator-list" target="_blank" rel="oopener noreferrer">{creator.name}</a>
                 </li>
                 )}
             </ul>
 
-            <h2 className="font-bold text-3xl block my-3 text-left">Build with</h2>
+            <h2 className="font-bold md:text-3xl text-2xl block my-3 text-left">Build with</h2>
             <div className="text-center flex flex-col items-center justify-center gap-4">
                 <div className="flex flex-col gap-6 grid grid-cols-3">
                     {techs.map((tech) => 
                     <a 
                     href={`${tech.link}`}
-                    className={`text-3xl rounded-md py-2 px-2 font-bold opacity-100 tech-list ${hover} `}
+                    className={`md:text-3xl text-lg rounded-md py-2 px-2 font-bold opacity-100 bg-white ${hover} `}
                     key={tech.name}
                     target="_blank"
                     rel="noopener noreferrer">{tech.name}</a>
@@ -95,7 +99,7 @@ function Credit () {
 
                 <a 
                 href="https://github.com/RookiePrime/crazy-tetris"
-                className={`text-3xl rounded-md py-3 px-5 mt-10 font-bold opacity-100 flex flex-row btn-action ${hover} `}
+                className={`md:text-3xl text-xl rounded-md py-3 px-5 mt-10 font-bold opacity-100 flex flex-row btn-action ${hover} `}
                 target="_blank"
                 rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faGithub} className={`text-4xl mx-2 top-3 right-10`}/>

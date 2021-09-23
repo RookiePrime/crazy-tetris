@@ -11,6 +11,7 @@ import ScoreBoard from '../../components/gameComponents/ScoreBoard'
 import Controls from '../../components/gameComponents/Controls'
 import PausePopup from '../../components/gameComponents/PausePopup'
 import Settings from '../../components/gameComponents/Settings';
+import Navigation from '../../components/gameComponents/Navigation';
 
 const store = createStore(reducers)
 
@@ -26,6 +27,7 @@ function App() {
         <ScoreBoard />
         <Settings/>
         <Controls />
+        <Navigation />
       </div>
     </Provider>
   );

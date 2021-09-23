@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 export default function ScoreBoard(props) {
@@ -7,6 +7,9 @@ export default function ScoreBoard(props) {
 
     return (
         <div className="score-board">
+            <a className="game-logo-link" href="/">
+                <img className="game-logo" alt="crazy tetromino logo" src={require('../../../assets/images/Logo.png').default} />
+            </a>
 
             <div className="score">
                 <h3>SCORE</h3>
