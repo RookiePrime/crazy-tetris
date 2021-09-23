@@ -26,7 +26,7 @@ function Profile() {
                                 <div value= {Auth.loggedIn()? Auth.getProfile().data.username : "Anonymous"} 
                                 name="name" 
                                 htmlFor="username" id="username" 
-                                className="rounded-2xl text-2xl text-black-500 w-full p-6 text-center  profile-input" 
+                                className="rounded-2xl text-3xl font-bold text-black-500 w-full p-8 text-center  profile-input" 
                                 placeholder= {Auth.loggedIn()? Auth.getProfile().data.username : "Anonymous"}></div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ function Profile() {
                                 <div className="flex flex-wrap ">
                                     <div className="total-lines w-full items-center px-8 py-3 pt-4 text-center mb-2">
                                         <h4 className="text-2xl">is the highest lines you cleared!</h4>
-                                        <h2 className="text-5xl">{filterList.length > 0 ? filterList[0].highscore/40 : 0}</h2>
+                                        <h2 className="text-5xl font-bold">{filterList.length > 0 ? filterList[0].highscore/40 : 0}</h2>
                                     </div>
                                 <div className="trophies w-full px-5 py-2 h-1/5 mb-1">
                                     <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>

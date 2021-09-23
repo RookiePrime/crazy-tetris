@@ -15,10 +15,21 @@ a {
   color: black
 }
 
-
 .btn-action:hover, .btn-start-game:hover, .btn-sign-out:hover {
   border: 2px #52B3D1 solid;
   background-color: white;
+}
+
+.btn-start-game {
+  border: 2px #52B3D1 solid;
+  background-color: #52B3D1;
+  box-shadow: 0px 5px rgba(77, 40, 40, 0.2);
+}
+
+.btn-sign-out {
+  border: 2px #E6E2E1 solid;
+  background-color: #E6E2E1;
+  box-shadow: 0px 5px rgba(77, 40, 40, 0.2);
 }
 
 .btn-settings, .btn-about, .btn-score{
@@ -66,10 +77,15 @@ a {
 /* profile username input */
 .user-icon {
   position: absolute;
-  left: 15%;
+  left: 5%;
   top: calc(50% - 0.5em);
   color: #52B3D1;
   width: 30%;
+}
+
+.profile-input {
+  border: 1px solid #FF971C;
+  background-color: #fff;
 }
 
 /* profile-font and background */
@@ -85,42 +101,37 @@ a {
 }
 
 /* profile table */
-td:nth-last-child {
-  padding-bottom: 10;
-
+.profile-highscore {
+  overflow: scroll;
+  text-overflow:clip;
 }
 
 .col1 {
-  padding-left: 14%;
+  text-align: end;
 }
 
 .col2 {
-  padding-left: 35%;
-  padding-right: 35%;  
+  text-align: center;
 }
 
-hr {
-  border: 2px dashed #000;
-  width: 250%;
-  margin: 10% 0 0 45%;
+tr {
+  border-bottom: 3px dashed #000; 
 }
 
-/* total lines score board */
+tr:last-child {
+  border-bottom: none;
+}
+
+/* trophy board */
 .trophy-logo {
   color: #E6E2E1;
   padding-right: 1%;
   font-size: 2rem;
 }
 
-.btn-start-game {
-  background-color: #52B3D1;
-  box-shadow: 0px 5px rgba(77, 40, 40, 0.2);
-  color: #000;
-}
-
-.btn-sign-out {
-  background-color: #E6E2E1;
-  box-shadow: 0px 5px rgba(77, 40, 40, 0.2);
+.trophies {
+  overflow: scroll;
+  text-overflow:clip;
 }
 /* Profile Styles ends here */
 
@@ -179,13 +190,6 @@ hr {
 
 /* media queries of profile page */
 @media screen and (max-width: 600px){
-
-  body {
-    background-color: #ffff;
-    opacity: 1;
-    background-image:  linear-gradient(#d1d1d3 1px, transparent 1px), linear-gradient(to right, #d1d1d3 1px, #ffff 1px);
-    background-size: 6rem 6rem;
-  }
 
   .frame {
     background-color: transparent;
