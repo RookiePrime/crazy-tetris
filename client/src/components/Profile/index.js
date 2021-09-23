@@ -23,11 +23,7 @@ function Profile() {
                         <div className="input-wrapper relative pb-1 pt-1">
                             <div id="contact-form">
                                 <FontAwesomeIcon className="user-icon fa-3x" icon={faUser}/>
-                                <div value= {Auth.loggedIn()? Auth.getProfile().data.username : "Anonymous"} 
-                                name="name" 
-                                htmlFor="username" id="username" 
-                                className="rounded-2xl text-3xl font-bold text-black-500 w-full p-8 text-center  profile-input" 
-                                placeholder= {Auth.loggedIn()? Auth.getProfile().data.username : "Anonymous"}></div>
+                                <div className="rounded-2xl text-3xl font-bold text-black-500 w-full p-4 text-center  profile-input">Welcome, {Auth.loggedIn()? Auth.getProfile().data.username : "Anonymous"}!</div>
                             </div>
                         </div>
                     </div>

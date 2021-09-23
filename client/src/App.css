@@ -130,7 +130,6 @@ tr:last-child {
 }
 
 .trophies {
-  overflow: scroll;
   text-overflow:clip;
 }
 /* Profile Styles ends here */
