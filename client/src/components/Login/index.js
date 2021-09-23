@@ -26,7 +26,6 @@ function Login () {
                 });
                 const token = mutationResponse.data.login.token;
                 Auth.login(token);
-                alert("logged in");   
             } catch (e) {
             console.log(e);
             }
