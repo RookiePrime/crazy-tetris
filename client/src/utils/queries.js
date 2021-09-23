@@ -8,3 +8,12 @@ export const QUERY_TOPSCORES = gql`
         }
     }
 `;
+
+export const QUERY_HIGHSCORES = gql`
+    query highscores($username: String!) {
+        highscores(username: $username) {
+            highscore
+            username
+        }
+    }
+`;
