@@ -10,7 +10,7 @@ export default function Highscore(props) {
  
       <p>
         <FontAwesomeIcon icon={faUser} />
-        {Auth.getProfile().data.username}
+        {Auth.loggedIn()? Auth.getProfile().data.username : "Anonymous"}
       </p>
 
     </div>

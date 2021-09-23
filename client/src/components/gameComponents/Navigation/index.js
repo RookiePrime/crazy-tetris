@@ -30,7 +30,7 @@ export default function Navigation(props) {
                 {/*--- IF USER SIGN IN = GO TO PROFILE ---*/}
                 <Link to="/" className="game-userinfo">
                     <FontAwesomeIcon icon={faUser} />
-                    {Auth.getProfile().data.username}
+                    {Auth.loggedIn()? Auth.getProfile().data.username : "Anonymous"}
                 </Link>
             </div>
         </div>

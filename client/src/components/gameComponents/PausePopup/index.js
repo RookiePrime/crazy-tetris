@@ -53,12 +53,12 @@ export default function PausePopup(props) {
       <Link to='/'>
         <button className={`popup-button btn-action ${hover}`} onClick={(e) => {
           e.target.name === "QUIT GAME" ? dispatch(restart()) : saveHighscore();
-        }}>{ gameOver ? 'SAVE HIGHSCORE' : 'QUIT GAME' }</button>
+        }}>{ gameOver ? Auth.loggedIn()? 'SAVE HIGHSCORE' : "SIGNUP" : 'QUIT GAME' }</button>
       </Link>
 
       <p className="gameP">
         <FontAwesomeIcon icon={faUser} />
-        {Auth.getProfile().data.username}
+        {Auth.loggedIn()? Auth.getProfile().data.username : "Anonymous"}
       </p>
     </div>
   )

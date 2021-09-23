@@ -10,9 +10,7 @@ function Profile() {
     
     const { loading, data } = useQuery(QUERY_TOPSCORES);
     const scoresList = data?.topscores || [];
-    loading? console.log("loading") : console.log(scoresList);
     const filterList = scoresList.filter(score => score.username === Auth.getProfile().data.username )
-    console.log(filterList);
     return(
     <div className="container mx-auto flex w-full h-screen items-center justify-center">
         <div className="frame">
@@ -26,11 +24,11 @@ function Profile() {
                         <div className="input-wrapper relative pb-4">
                             <form id="contact-form">
                                 <label htmlFor="username" icon={faUser}><FontAwesomeIcon className="user-icon fa-3x" icon={faUser}/> </label>
-                                <input type="text" defaultValue={Auth.getProfile().data.username}  
+                                <input type="text" defaultValue= {Auth.loggedIn()? Auth.getProfile().data.username : "Anonymous"} 
                                 name="name" 
                                 htmlFor="username" id="username" 
                                 className="rounded-2xl text-black-500 w-full p-6 text-center  profile-input" 
-                                placeholder={Auth.getProfile().data.username}/>
+                                placeholder= {Auth.loggedIn()? Auth.getProfile().data.username : "Anonymous"}/>
                             </form>
                         </div>
                     </div>
