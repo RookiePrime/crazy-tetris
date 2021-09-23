@@ -155,7 +155,7 @@ tr:last-child {
 }
 
 .total-lines h2 {
-  font-size: 5em;
+  font-size: calc(15px + 10vh);
 }
 
 .total-lines h4 {
@@ -229,6 +229,10 @@ tr:last-child {
   .profile-right{
     display: block;
     width: 100%;
-    margin: 3% 0;
+    margin: 2vh 0;
+  }
+
+  .btn-sign-out {
+    margin-top: 2vh;
   }
 }
