@@ -102,6 +102,22 @@ h4 {
   background-color: var(--color-9);
 }
 
+.color-10 {
+  background-color: var(--color-10);
+}
+
+.color-11 {
+  background-color: var(--color-11);
+}
+
+.color-12 {
+  background-color: var(--color-12);
+}
+
+.color-13 {
+  background-color: var(--color-13);
+}
+
 /* Grid Square */
 .grid-square {
   border-style: solid;

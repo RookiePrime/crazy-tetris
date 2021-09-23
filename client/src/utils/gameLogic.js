@@ -15,12 +15,6 @@ export const gridDefault = () => {
 }
 
 const masterShapes = [
-    // none
-    [[[0,0,0,0],
-    [0,0,0,0],
-    [0,0,0,0],
-    [0,0,0,0]]],
-
     // CRAZY SHAPES
     // + shape
     [[[0,0,8,0],
@@ -373,7 +367,7 @@ export const speedIncrease = (currentLevel) => {
 
 export const newBlock = (currentLevel) => {
   if (currentLevel > 1) {
-    const randomPieceVal = random(1, masterShapes.length - 1);
+    const randomPieceVal = random(0, masterShapes.length - 1);
     shapes.push(masterShapes[randomPieceVal]);
     masterShapes.splice(randomPieceVal, 1);
   }
