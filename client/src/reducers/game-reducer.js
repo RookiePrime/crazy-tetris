@@ -2,7 +2,6 @@ import {
     MOVE_RIGHT, 
     MOVE_LEFT,
     MOVE_DOWN,
-    // HARD_DROP,
     ROTATE,
     PAUSE,
     RESUME,
@@ -17,7 +16,8 @@ import {
     addBlockToGrid,
     checkRows,
     levelUp,
-    speedIncrease
+    speedIncrease,
+    resetBlocks
 } from '../utils/gameLogic'
 
 //define a function to handle the actions
@@ -64,6 +64,7 @@ const gameReducer = (state = defaultState(), action) => {
             
             if (gameOver) {
                 // Game Over
+                resetBlocks();
                 const newState = { ...state }
                 newState.shape = 0
                 newState.grid = newGrid
@@ -85,13 +86,6 @@ const gameReducer = (state = defaultState(), action) => {
             newState.speed = speedIncrease(newState.level);
 
             return newState
-
-        // case HARD_DROP:
-        //     if(canMoveTo(shape, grid, x, y, rotation)) {
-        //         return { ...state, x: x + 1 };
-        //     }
-        //     return state
-            
 
         case RESUME:
             
