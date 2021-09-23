@@ -2,7 +2,6 @@ import {
     MOVE_RIGHT, 
     MOVE_LEFT,
     MOVE_DOWN,
-    // HARD_DROP,
     ROTATE,
     PAUSE,
     RESUME,
@@ -23,7 +22,7 @@ import {
 
 //define a function to handle the actions
 const gameReducer = (state = defaultState(), action) => {
-    const { shape, grid, x, y, rotation, nextShape, score, isRunning, level, speed, shapes } = state;
+    const { shape, grid, x, y, rotation, nextShape, score, isRunning, level, speed } = state;
 
     switch(action.type) {
         case ROTATE:
@@ -87,23 +86,6 @@ const gameReducer = (state = defaultState(), action) => {
             newState.speed = speedIncrease(newState.level);
 
             return newState
-
-        // case HARD_DROP:
-        //     let finished = false;
-        //     let newY = y;
-        //     // If 
-        //     while (!finished || newY < 10) {
-        //         newY++;
-        //         const canMove = canMoveTo(shape, grid, x, newY,)
-        //         if(canMoveTo(shape, grid, x, newY, rotation)) {
-        //             continue;
-        //         } else {
-        //             finished = true;
-        //             console.log(state, newY);
-        //             return { ...state, y: newY }
-        //         }
-        //     }
-        //     break;
 
         case RESUME:
             

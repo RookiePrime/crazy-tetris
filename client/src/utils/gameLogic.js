@@ -371,12 +371,10 @@ export const newBlock = (currentLevel) => {
     shapes.push(masterShapes[randomPieceVal]);
     masterShapes.splice(randomPieceVal, 1);
   }
-  console.log('Pushed!', shapes);
 }
 
 export const resetBlocks = () => {
   while (shapes.length > 8) {
-    console.log('Pop!', shapes.length);
     shapes.pop();
   };
 }
