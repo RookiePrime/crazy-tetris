@@ -58,4 +58,6 @@ Created By:
  * [Sonali Pandey](https://github.com/sonali-pandey)
  * [Rizzel Nolasco](https://github.com/rizznn)
 
-Code structure referenced using: [makeschool.org](https://makeschool.org/mediabook/oa/tutorials/react-redux-tetris-app-tutorial-o4s/tetris-introduction)
+Resources:
+* [makeschool.org](https://makeschool.org/mediabook/oa/tutorials/react-redux-tetris-app-tutorial-o4s/tetris-introduction)
+* [youTube](https://www.youtube.com/watch?v=ZGOaCxX8HIU&ab_channel=freeCodeCamp.org)

@@ -55,6 +55,24 @@ a {
 
 .modal-wrap{
   box-shadow: 10px 10px #E6E2E1;
+  overflow-x: scroll;
+}
+
+.modal-wrap .fa-times {
+  margin-top: 2vh;
+}
+
+.modal-register {
+  width: 40vw;
+}
+
+.register-link {
+  margin-left: 5px;
+}
+
+input[type=text],
+input[type=password] {
+  width: 30vw;
 }
 
 /* Profile styling starts here */
@@ -170,8 +188,8 @@ tr:last-child {
 }
 
 .creator-list:hover{
-  color: red;
-  border-bottom: 3px dashed red;
+  color: #FF3213;
+  border-bottom: 3px dashed #FF3213;
 }
 
 /* High Scores Styling begins here */
@@ -234,5 +252,14 @@ tr:last-child {
 
   .btn-sign-out {
     margin-top: 2vh;
+  }
+
+  .modal-wrap {
+    width: 80vw;
+  }
+
+  input[type=text],
+  input[type=password] {
+    width: 70vw;
   }
 }
