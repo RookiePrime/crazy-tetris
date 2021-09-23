@@ -57,7 +57,7 @@ const masterShapes = [
         [0, 0, 12, 0],
         [0, 12, 12, 12],
         [0, 0, 0, 0]],
-       [[0, 12, 0, 12]
+       [[0, 12, 0, 12],
         [0, 12, 12, 12],
         [0, 12, 0, 12],
         [0, 0, 0, 0]]
@@ -78,7 +78,7 @@ const masterShapes = [
        [0, 0, 0, 0]],
       [[14, 0, 0, 0],
        [0, 14, 0, 0],
-       [14, 14, 0, 0]
+       [14, 14, 0, 0],
        [0, 0, 0, 0]]
     ],
 
@@ -378,4 +378,11 @@ export const newBlock = (currentLevel) => {
     masterShapes.splice(randomPieceVal, 1);
   }
   console.log('Pushed!', shapes);
+}
+
+export const resetBlocks = () => {
+  while (shapes.length > 8) {
+    console.log('Pop!', shapes.length);
+    shapes.pop();
+  };
 }

@@ -18,6 +18,7 @@ import {
     checkRows,
     levelUp,
     speedIncrease,
+    resetBlocks
 } from '../utils/gameLogic'
 
 //define a function to handle the actions
@@ -64,6 +65,7 @@ const gameReducer = (state = defaultState(), action) => {
             
             if (gameOver) {
                 // Game Over
+                resetBlocks();
                 const newState = { ...state }
                 newState.shape = 0
                 newState.grid = newGrid
