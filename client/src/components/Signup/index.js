@@ -46,7 +46,7 @@ function Signup (props) {
     };
 
     return (
-    <section className="modal-wrap rounded flex flex-col items-center text-center justify-center gap-6 md:p-20 p-6 bg-yellow-400 relative model-register">
+    <section className="modal-wrap rounded flex flex-col items-center text-center justify-center gap-6 md:p-20 p-6 bg-yellow-400 relative">
         
         <a href='./' className="text-8xl">
             <FontAwesomeIcon icon={faTimes} className={`text-4xl absolute top-3 right-10`}/>
@@ -83,12 +83,12 @@ function Signup (props) {
                 onChange={handleChange}
             />
 
-            <button className={`md:text-3xl text-lg rounded-md py-2 font-bold opacity-100 btn-action submit-btn ${hover}`}>SIGN UP</button>
+            <button className={`md:text-3xl text-lg rounded-md py-2 mt-10 font-bold opacity-100 btn-action submit-btn ${hover}`}>SIGN UP</button>
             <p className="text-lg">Already have an account?
-                <a 
-                className="text-blue-400 font-bold register-link" 
+                <button 
+                className="text-blue-400 font-bold" 
                 onClick = { () => setModalIsOpen(true)}
-                > LOGIN</a>
+                > LOGIN</button>
             </p>
         </form>
 
