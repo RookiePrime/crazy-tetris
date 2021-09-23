@@ -7,12 +7,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Auth from '../../../utils/auth';
 import { useMutation } from '@apollo/client';
 import { ADD_HIGHSCORE } from '../../../utils/mutations';
+import { QUERY_TOPSCORES } from '../../../utils/queries';
 
 export default function PausePopup(props) {
   const isRunning = useSelector((state) => state.game.isRunning);
   const gameOver = useSelector((state) => state.game.gameOver);
   const dispatch = useDispatch();
-  const [addHighscore] = useMutation(ADD_HIGHSCORE);
+  const [addHighscore] = useMutation(ADD_HIGHSCORE, {
+    update(cache, { data: highscore }) {
+      try {
+        const { topscores } = cache.readQuery({ query: QUERY_TOPSCORES });
+        
+        cache.writeQuery({
+          query: QUERY_TOPSCORES,
+          data: { topscores: [highscore, ...topscores] }
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  });
 
   const game = useSelector((state => state.game));
   const { score } = game;
@@ -33,7 +47,7 @@ export default function PausePopup(props) {
   const saveHighscore = async ()=>{
     try {
       await addHighscore({
-        variables: { highscore: score},
+        variables: { highscore: score, username: Auth.getProfile().data.username },
       });
     } catch (e) {
       console.log(e);
