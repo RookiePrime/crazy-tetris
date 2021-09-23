@@ -19,7 +19,7 @@ const resolvers = {
       },
       highscores: async (parent, { username }) => {
         const params = { username };
-        return Highscore.find(params).sort('-highscore').limit(5);
+        return Highscore.find(params).sort('-highscore');
       },
     },
 
@@ -50,7 +50,7 @@ const resolvers = {
           const data = await Highscore.create({ ...args, username: context.user.username });
           await User.findByIdAndUpdate(
             { _id: context.user._id },
-            { $push: data.highscore },
+            { $push: data.highscore._id },
             { new: true }
           );
           return data;

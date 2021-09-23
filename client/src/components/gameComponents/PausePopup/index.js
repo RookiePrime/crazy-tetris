@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Auth from '../../../utils/auth';
 import { useMutation } from '@apollo/client';
 import { ADD_HIGHSCORE } from '../../../utils/mutations';
-import { QUERY_TOPSCORES } from '../../../utils/queries';
+import { QUERY_HIGHSCORES } from '../../../utils/queries';
 
 export default function PausePopup(props) {
   const isRunning = useSelector((state) => state.game.isRunning);
@@ -16,11 +16,16 @@ export default function PausePopup(props) {
   const [addHighscore] = useMutation(ADD_HIGHSCORE, {
     update(cache, { data: highscore }) {
       try {
-        const { topscores } = cache.readQuery({ query: QUERY_TOPSCORES });
-        
+        const { highscores } = cache.readQuery({ query: QUERY_HIGHSCORES, variables: { username: Auth.getProfile().data.username } });
+        // Why here and not down there? See the next line. This is more for readability than functionality, I know I could squeeze this down.
+        const newScores = [ { ...highscore.addHighscore, username: Auth.getProfile().data.username }, ...highscores];
+        // It's a sort! I'm sorting the values. While the database calls themselves sort it, the cache doesn't seem to do that, at least not the same way. So I'm manually sorting before caching.
+        newScores.sort((a, b) => b.highscore - a.highscore);
+
         cache.writeQuery({
-          query: QUERY_TOPSCORES,
-          data: { topscores: [highscore, ...topscores] }
+          query: QUERY_HIGHSCORES,
+          data: { highscores: newScores },
+          variables: { username: Auth.getProfile().data.username }
         });
       } catch (e) {
         console.error(e);

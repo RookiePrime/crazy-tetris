@@ -4,13 +4,16 @@ import { faUser, faTrophy, faMedal } from '@fortawesome/free-solid-svg-icons';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_TOPSCORES } from '../../utils/queries'
+import { QUERY_HIGHSCORES } from '../../utils/queries'
 
 function Profile() {
     
-    const { loading, data } = useQuery(QUERY_TOPSCORES);
-    const scoresList = data?.topscores || [];
-    const filterList = scoresList.filter(score => score.username === Auth.getProfile().data.username )
+    const { loading, data } = useQuery(QUERY_HIGHSCORES, {
+        variables: { username: Auth.getProfile().data.username }
+    });
+    const scoresList = data?.highscores || [];
+
+    const filterList = scoresList.filter((score, i) => i < 5 && score.username === Auth.getProfile().data.username);
     return(
     <div className="container mx-auto flex w-full h-screen items-center justify-center">
         <div className="frame">
@@ -41,14 +44,14 @@ function Profile() {
                                 </thead>
                                 <tbody className="p-12">
                                     {loading ?
-                                        <h3>Loading...</h3> : filterList.length > 0?
+                                        <tr><td><h3>Loading...</h3></td></tr> : filterList.length > 0?
                                         filterList.map((score, i) => (
-                                        <>
-                                        <tr>
+                                        
+                                        <tr key={i}>
                                             <td className="col1">0{i+1}</td>
                                             <td className="col2"><span className="text-white">{score.highscore}</span></td>
                                         </tr>
-                                        </>
+                                        
                                         ))
                                         : <h1>Play game to have Highscore</h1>
                                     }

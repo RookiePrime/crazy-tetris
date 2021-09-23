@@ -18,6 +18,7 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    highscores: [Highscore]
   }
 
   type HighscoreAdd {
