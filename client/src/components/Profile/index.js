@@ -59,8 +59,8 @@ function Profile() {
                             <div className="profile-right container flex flex-wrap  ml-6 pt-4">
                                 <div className="flex flex-wrap ">
                                     <div className="total-lines w-full items-center px-8 py-3 pt-4 text-center mb-2">
-                                        <h4 className="text-2xl">is the highest lines you cleared!</h4>
                                         <h2 className="text-5xl font-bold">{filterList.length > 0 ? filterList[0].highscore/40 : 0}</h2>
+                                        <h4 className="text-2xl">is the highest lines you cleared!</h4>
                                     </div>
                                 <div className="trophies w-full px-5 py-2 h-1/5 mb-1">
                                     <FontAwesomeIcon icon={faTrophy} className="trophy-logo"/>
