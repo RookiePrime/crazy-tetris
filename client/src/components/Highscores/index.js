@@ -16,7 +16,7 @@ const Highscores = () => {
                 <FontAwesomeIcon icon={faTimes} className={`text-4xl absolute top-3 right-10`}/>
             </a>
 
-            <h1 className="text-4xl font-normal mb-5">HIGH SCORES</h1>
+            <h1 className="lg:text-4xl md:text-4xl text-2xl font-normal mb-5">HIGH SCORES</h1>
 
                 {loading ?
                     <h3>Loading...</h3> : scoresList.length > 0?
@@ -29,7 +29,7 @@ const Highscores = () => {
                                 <p className='p-body font-normal'>{score.highscore}</p>
                             </div>
                         </div> )) 
-                    : <h1>Play game to have Highscore</h1>
+                    : <h1 className='px-4'>Play game to have Highscore</h1>
                 }
 
         </div>

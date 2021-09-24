@@ -72,24 +72,24 @@ function Credit () {
                 <FontAwesomeIcon icon={faTimes} className={`text-4xl absolute top-3 right-10`}/>
             </a>
 
-            <h1 className="text-4xl font-normal mb-5">CREDITS</h1>
+            <h1 className="lg:text-4xl text-2xl font-normal mb-5">CREDITS</h1>
 
             <h2 className="font-bold md:text-3xl text-2xl block text-left">Built By</h2>
             <ul>
                 {creators.map((creator) => 
-                <li className={`inline mx-3 ${hover}`}>
-                    <a href={`${creator.git}`} className="font-bold md:text-2xl text-xl creator-list" target="_blank" rel="oopener noreferrer">{creator.name}</a>
+                <li className={`inline lg:mx-3 md:mx-3 mx-2 ${hover}`}>
+                    <a href={`${creator.git}`} className="font-bold md:text-2xl text-0.5xl creator-list" target="_blank" rel="oopener noreferrer">{creator.name}</a>
                 </li>
                 )}
             </ul>
 
-            <h2 className="font-bold md:text-3xl text-2xl block my-3 text-left">Build with</h2>
+            <h2 className="font-bold md:text-3xl text-2xl block lg:my-3 my-1 text-left">Build with</h2>
             <div className="text-center flex flex-col items-center justify-center gap-4">
-                <div className="flex flex-col gap-6 grid grid-cols-3">
+                <div className="flex flex-col lg:gap-6 md:gap-6 gap-3 grid grid-cols-3">
                     {techs.map((tech) => 
                     <a 
                     href={`${tech.link}`}
-                    className={`md:text-3xl text-lg rounded-md py-2 px-2 font-bold opacity-100 bg-white ${hover} `}
+                    className={`md:text-3xl text-1xl rounded-md lg:py-2 py-1 lg:px-2 px-1 font-bold opacity-100 bg-white ${hover} `}
                     key={tech.name}
                     target="_blank"
                     rel="noopener noreferrer">{tech.name}</a>
@@ -99,10 +99,10 @@ function Credit () {
 
                 <a 
                 href="https://github.com/RookiePrime/crazy-tetris"
-                className={`md:text-3xl text-xl rounded-md py-3 px-5 mt-10 font-bold opacity-100 flex flex-row btn-action ${hover} `}
+                className={`md:text-3xl md:text-xl lg:text-xl text-0.5xl rounded-md py-3 px-5 mt-10 font-bold opacity-100 flex flex-row btn-action ${hover} `}
                 target="_blank"
                 rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faGithub} className={`text-4xl mx-2 top-3 right-10`}/>
+                    <FontAwesomeIcon icon={faGithub} className={`md:text-4xl lg:text-4xl text-2xl mx-2 top-3 right-10`}/>
                     <p>GitHub</p>
                 </a>
             <Modal 
