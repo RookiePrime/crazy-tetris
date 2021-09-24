@@ -7,8 +7,6 @@ import { QUERY_TOPSCORES } from '../../utils/queries';
 const Highscores = () => {
     const { loading, data } = useQuery(QUERY_TOPSCORES);
     const scoresList = data?.topscores || [];
-
-    // loading? console.log("loading") : console.log(scoresList);
     return (
         <div className="modal-wrap rounded flex flex-col items-center text-center justify-center gap-6 md:p-20 p-6 bg-yellow-400 relative">
 
