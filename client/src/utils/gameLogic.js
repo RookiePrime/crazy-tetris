@@ -254,13 +254,14 @@ export const canMoveTo = (shape, grid, x, y, rotation) => {
       if(currentShape[row][col] !== 0) {
         const proposedX = col + x;
         const proposedY = row + y;
-        if(proposedY < 0) {
+
+        if(proposedY < 0 && proposedX < 8 && proposedX > 0) {
           continue
         }
 
         //get the row on the grid
         const possibleRow = grid[proposedY];
-        
+
         //check if row exists
         if(possibleRow) {
           if(possibleRow[proposedX] === undefined || possibleRow[proposedX] !== 0) {
