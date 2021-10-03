@@ -254,13 +254,15 @@ export const canMoveTo = (shape, grid, x, y, rotation) => {
       if(currentShape[row][col] !== 0) {
         const proposedX = col + x;
         const proposedY = row + y;
-        if(proposedY < 0) {
+
+        // checks to see if the proposed next square is above the grid and also within the horizontal bounds of the grid, clumsily preventing the user from moving the piece off the board while the piece is still above the grid and ending the game early
+        if(proposedY < 0 && proposedX < grid[0].length && proposedX > 0) {
           continue
         }
 
         //get the row on the grid
         const possibleRow = grid[proposedY];
-        
+
         //check if row exists
         if(possibleRow) {
           if(possibleRow[proposedX] === undefined || possibleRow[proposedX] !== 0) {
